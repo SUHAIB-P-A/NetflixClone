@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Modify this file to customize your launch splash screen -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@android:color/black" />
+
+    <!-- You can insert your own image assets here -->
+    <!-- <item>
+        <bitmap
+            android:gravity="center"
+            android:src="@mipmap/launch_image" />
+    </item> -->
+</layer-list>
+<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
+    <background android:drawable="@drawable/ic_launcher_background"/>
+    <inset
+       android:insetBottom="20dp"
+       android:insetLeft="20dp"
+       android:insetRight="20dp"
+       android:insetTop="20dp">
+       <shape android:shape="oval">
+           <solid android:color="#000000" />
+       </shape>
+   </inset> 
+   
+    <foreground android:drawable="@drawable/ic_launcher_foreground" />
+    <inset
+       android:insetBottom="20dp"
+       android:insetLeft="20dp"
+       android:insetRight="20dp"
+       android:insetTop="20dp">
+       <shape android:shape="oval">
+           <solid android:color="#000000" />
+       </shape>
+   </inset>
+
+    // Starting with Android 13 (API level 33), you can opt-in to providing a
+    // <monochrome> drawable.
+    <inset
+       android:insetBottom="20dp"
+       android:insetLeft="20dp"
+       android:insetRight="20dp"
+       android:insetTop="20dp">
+       <shape android:shape="oval">
+           <solid android:color="#000000" />
+       </shape>
+   </inset>
+    <monochrome android:drawable="@drawable/ic_launcher_monochrome" />
+</adaptive-icon>
+
