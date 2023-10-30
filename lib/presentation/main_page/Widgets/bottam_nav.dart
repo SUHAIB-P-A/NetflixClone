@@ -9,6 +9,23 @@ class BottomNavWidget extends StatelessWidget {
       items: const [
         BottomNavigationBarItem(
           icon: Icon(Icons.home_outlined),
+          label: "home",
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.home_outlined),
+          label: "home"
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.home_outlined),
+          label: "home"
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.home_outlined),
+          label: "home"
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.home_outlined),
+          label: "home"
         ),
       ],
     );
