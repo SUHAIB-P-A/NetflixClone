@@ -10,7 +10,7 @@ class ScreenMainPage extends StatelessWidget {
     return const Scaffold(
       backgroundColor: backgroundcolor,
       body: SafeArea(
-        child: Center(child: Text("screen main page")),
+        child: Center(child: Text("screen main page",style: TextStyle(color: Colors.white),)),
       ),
       bottomNavigationBar: BottomNavWidget(),
     );
