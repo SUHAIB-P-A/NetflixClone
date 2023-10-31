@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:netflix/core/colors/colors.dart';
+import 'package:netflix/core/constants/const.dart';
 
 class AppBarWidget extends StatelessWidget {
   const AppBarWidget({super.key});
@@ -9,9 +10,7 @@ class AppBarWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        const SizedBox(
-          width: 10,
-        ),
+       kwidth,
         Text(
           "Downloads",
           style: GoogleFonts.oswald(
@@ -24,17 +23,13 @@ class AppBarWidget extends StatelessWidget {
           Icons.cast_outlined,
           color: white,
         ),
-        const SizedBox(
-          width: 10,
-        ),
+        kwidth,
         Container(
           color: blue,
           height: 25,
           width: 25,
         ),
-        const SizedBox(
-          width: 10,
-        ),
+        kwidth,
       ],
     );
   }
