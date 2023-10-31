@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:netflix/presentation/Widgets/app_bar_widget.dart';
 
 class ScreenNewandHot extends StatelessWidget {
   const ScreenNewandHot({super.key});
@@ -8,6 +9,12 @@ class ScreenNewandHot extends StatelessWidget {
     return const Scaffold(
       body: Center(
         child: Text("NewandHot"),
+      ),
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(50),
+        child: AppBarWidget(
+          title: "New & Hot",
+        ),
       ),
     );
   }
