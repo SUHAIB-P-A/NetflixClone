@@ -1,18 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:netflix/core/colors/colors.dart';
+import 'package:netflix/presentation/Downloads/Widgets/screen_downloads.dart';
+import 'package:netflix/presentation/FastLaugh/screen_fast_laugh.dart';
+import 'package:netflix/presentation/NewandHot/screen_new_and_hot.dart';
+import 'package:netflix/presentation/Search/screen_search.dart';
+import 'package:netflix/presentation/home/screen_home.dart';
 import 'package:netflix/presentation/main_page/Widgets/bottam_nav.dart';
 
 class ScreenMainPage extends StatelessWidget {
   const ScreenMainPage({super.key});
-
+  final _pages = const [
+    ScreenHome(),
+    ScreenNewandHot(),
+    ScreenFastLaugh(),
+    ScreenSearch(),
+    ScreenDownload(),
+  ];
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       backgroundColor: backgroundcolor,
       body: SafeArea(
-        child: Center(child: Text("screen main page",style: TextStyle(color: Colors.white),)),
+        child: ValueListenableBuilder(
+          valueListenable: indexchangenotifier,
+          builder: (context, int index, _) {
+            return _pages[index];
+          },
+        ),
       ),
-      bottomNavigationBar: BottomNavWidget(),
+      bottomNavigationBar: const BottomNavWidget(),
     );
   }
 }
