@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
           bodyMedium: TextStyle(color: white), 
         ),
       ),
-      home: const ScreenMainPage(),
+      home:  ScreenMainPage(),
     );
   }
 }
