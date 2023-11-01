@@ -7,7 +7,7 @@ class ScreenDownload extends StatelessWidget {
   ScreenDownload({super.key});
 
   final List movielist = [
-    'https://www.themoviedb.org/movie/945729',
+    'https://www.cinejosh.com/newsimg/newsmainimg/leo-fan-made-poster_b_2303231134.jpg',
     'https://www.themoviedb.org/movie/575264',
     'https://www.themoviedb.org/movie/926393',
   ];
@@ -51,12 +51,19 @@ class ScreenDownload extends StatelessWidget {
               alignment: Alignment.center,
               children: [
                 CircleAvatar(
-                  radius: size.width * 0.33,
+                  radius: size.width * 0.37,
                 ),
                 Container(
-                  width: size.width * 0.3,
-                  height: size.width * 0.5,
-                  color: backgroundcolor,
+                  width: size.width * 0.45,
+                  height: size.width * 0.58,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(25),
+                    image: DecorationImage(
+                      image: NetworkImage(
+                        movielist[0],
+                      ),
+                    ),
+                  ),
                 ),
               ],
             ),
