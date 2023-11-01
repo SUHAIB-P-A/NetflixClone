@@ -8,6 +8,7 @@ class ScreenDownload extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: const PreferredSize(
         preferredSize: Size.fromHeight(50),
@@ -16,10 +17,10 @@ class ScreenDownload extends StatelessWidget {
         ),
       ),
       body: ListView(
-        children: const [
+        children: [
           khight,
           khight,
-           Row(
+          const Row(
             children: [
               kwidth,
               Icon(
@@ -29,8 +30,37 @@ class ScreenDownload extends StatelessWidget {
               Text("Smart Downloads"),
             ],
           ),
-          Text("Indroducing Downloads for You"),
-          Text("We'll download a personalised selection of\nmovies and shows for you, so there's \nalways something to watch on your\n device")
+          const Text("Indroducing Downloads for You"),
+          const Text(
+              "We'll download a personalised selection of\nmovies and shows for you, so there's \nalways something to watch on your\n device"),
+          Container(
+            height: size.width,
+            width: size.width,
+          ),
+          MaterialButton(
+            onPressed: () {},
+            color: downloadmeterialblue,
+            child: const Text(
+              "Setup",
+              style: TextStyle(
+                color: white,
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+          MaterialButton(
+            onPressed: () {},
+            color: downloadmeterialwhite,
+            child: const Text(
+              "See What you can download",
+              style: TextStyle(
+                color: backgroundcolor,
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
         ],
       ),
     );
