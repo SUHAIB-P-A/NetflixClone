@@ -7,7 +7,7 @@ class ScreenDownload extends StatelessWidget {
   ScreenDownload({super.key});
 
   final List movielist = [
-    'https://www.cinejosh.com/newsimg/newsmainimg/leo-fan-made-poster_b_2303231134.jpg',
+    'https://www.themoviedb.org/t/p/w600_and_h900_bestv2/A4j8S6moJS2zNtRR8oWF08gRnL5.jpg',
     'https://www.themoviedb.org/movie/575264',
     'https://www.themoviedb.org/movie/926393',
   ];
@@ -61,6 +61,7 @@ class ScreenDownload extends StatelessWidget {
                     image: DecorationImage(
                       image: NetworkImage(
                         movielist[0],
+                        scale: 5.0,
                       ),
                     ),
                   ),
