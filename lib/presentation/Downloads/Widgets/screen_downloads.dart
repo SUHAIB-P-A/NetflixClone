@@ -9,6 +9,12 @@ import 'package:netflix/presentation/Widgets/app_bar_widget.dart';
 class ScreenDownload extends StatelessWidget {
   ScreenDownload({super.key});
 
+  final List sessions = [
+    const _Smartdownloads(),
+    Session2(),
+    const Session3(),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,22 +24,18 @@ class ScreenDownload extends StatelessWidget {
           title: "Downloads",
         ),
       ),
-      body: ListView(
-        children: [
-          khight,
-          khight,
-          const _Smartdownloads(),
-          _Session2(),
-          const _Session3(),
-        ],
+      body: ListView.separated(
+        itemBuilder: (context, index) => sessions[index],
+        separatorBuilder: (context, index) => const SizedBox(height: 20,),
+        itemCount: sessions.length,
       ),
     );
   }
 }
 
 //two buttons
-class _Session3 extends StatelessWidget {
-  const _Session3({super.key});
+class Session3 extends StatelessWidget {
+  const Session3({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -87,8 +89,8 @@ class _Session3 extends StatelessWidget {
 }
 
 //images and texts
-class _Session2 extends StatelessWidget {
-  _Session2({super.key});
+class Session2 extends StatelessWidget {
+  Session2({super.key});
   final List movielist = [
     'https://m.media-amazon.com/images/M/MV5BMDk0ZmVmMTktOGNiNS00Yzg5LWIzZTAtNjUxZWZhZDljY2Y0XkEyXkFqcGdeQXVyMTY1MzAyNjU4._V1_.jpg',
     'https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_FMjpg_UY720_.jpg',
