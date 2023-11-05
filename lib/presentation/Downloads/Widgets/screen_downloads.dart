@@ -30,41 +30,26 @@ class ScreenDownload extends StatelessWidget {
         children: [
           khight,
           khight,
-          const Row(
-            children: [
-              kwidth,
-              // top icon
-              Icon(
-                Icons.settings,
-                color: white,
-              ),
-              SizedBox(
-                width: 2,
-              ),
-              Text("Smart Downloads"),
-            ],
-          ),
+          const _Smartdownloads(),
           // text
-          Center(
-            child: Text(
-              "Indroducing Downloads for You",
-              style: GoogleFonts.oswald(
-                fontWeight: FontWeight.w700,
-                fontSize: 25,
-              ),
+          Text(
+            "Indroducing Downloads for You",
+            textAlign: TextAlign.center,
+            style: GoogleFonts.oswald(
+              fontWeight: FontWeight.w700,
+              fontSize: 25,
             ),
           ),
           const SizedBox(
             height: 2,
           ),
           //text
-          const Center(
-            child: Text(
-              "We'll download a personalised selection of\n     movies and shows for you, so there's\n      always something to watch on your\n                            device",
-              style: TextStyle(
-                fontSize: 14,
-                color: grey,
-              ),
+          const Text(
+            "We'll download a personalised selection of\nmovies and shows for you, so there's\nalways something to watch on your\ndevice",
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 14,
+              color: grey,
             ),
           ),
           // rotated image container
@@ -78,7 +63,7 @@ class ScreenDownload extends StatelessWidget {
                 Center(
                   child: CircleAvatar(
                     radius: size.width * 0.39,
-                    backgroundColor: downloadcirculargrey,
+                    backgroundColor: downloadcirculargrey.withOpacity(0.4),
                   ),
                 ),
                 //img 1
@@ -98,7 +83,7 @@ class ScreenDownload extends StatelessWidget {
                 //img3
                 Downloadsimagewidget(
                   movielist: movielist[0],
-                  margin: const EdgeInsets.only(left: 0, top: 15),
+                  margin: const EdgeInsets.only(left: 0, top: 13),
                 ),
               ],
             ),
@@ -148,6 +133,30 @@ class ScreenDownload extends StatelessWidget {
   }
 }
 
+class _Smartdownloads extends StatelessWidget {
+  const _Smartdownloads({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return const Row(
+      children: [
+        kwidth,
+        // top icon
+        Icon(
+          Icons.settings,
+          color: white,
+        ),
+        SizedBox(
+          width: 2,
+        ),
+        Text("Smart Downloads"),
+      ],
+    );
+  }
+}
+
 // extract widget
 class Downloadsimagewidget extends StatelessWidget {
   const Downloadsimagewidget({
@@ -175,6 +184,7 @@ class Downloadsimagewidget extends StatelessWidget {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
             image: DecorationImage(
+              fit: BoxFit.cover,
               image: NetworkImage(
                 movielist,
               ),
