@@ -96,29 +96,28 @@ class ScreenDownload extends StatelessWidget {
 class Downloadsimagewidget extends StatelessWidget {
   const Downloadsimagewidget({
     super.key,
-    required this.size,
     required this.movielist,
   });
 
-  final Size size;
   final List movielist;
 
   @override
   Widget build(BuildContext context) {
+    final Size size = MediaQuery.of(context).size;
     return Transform.rotate(
-      angle: 20*pi/180,
+      angle: 20 * pi / 180,
       child: Container(
         width: size.width * 0.4,
         height: size.width * 0.58,
         //color: backgroundcolor,
-         decoration: BoxDecoration(
-           borderRadius: BorderRadius.circular(10),
-           image: DecorationImage(
-             image: NetworkImage(
-               movielist[2],
-             ),
-           ),
-         ),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          image: DecorationImage(
+            image: NetworkImage(
+              movielist[2],
+            ),
+          ),
+        ),
       ),
     );
   }
