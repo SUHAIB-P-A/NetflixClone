@@ -62,19 +62,19 @@ class ScreenDownload extends StatelessWidget {
                 //img 1
                 Downloadsimagewidget(
                   movielist: movielist[2],
-                  margin: const EdgeInsets.only(right: 20.0),
-                  angle: 20,
+                  margin: const EdgeInsets.only(left: 160),
+                  angle: 15,
                 ),
                 //img2
                 Downloadsimagewidget(
                   movielist: movielist[1],
-                  margin: const EdgeInsets.only(left: 20.0),
-                  angle: -20,
+                  margin: const EdgeInsets.only(right: 160,),
+                  angle: -15,
                 ),
                 //img3
                 Downloadsimagewidget(
                   movielist: movielist[0],
-                  margin: const EdgeInsets.only(left: 0),
+                  margin: const EdgeInsets.only(left: 0,bottom: 40),
                 ),
               ],
             ),
@@ -127,18 +127,21 @@ class Downloadsimagewidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
-    return Transform.rotate(
-      angle: angle * pi / 180,
-      child: Center(
-        child: Container(
-          width: size.width * 0.4,
-          height: size.width * 0.58,
-          //color: backgroundcolor,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-            image: DecorationImage(
-              image: NetworkImage(
-                movielist,
+    return Container(
+      margin: margin,
+      child: Transform.rotate(
+        angle: angle * pi / 180,
+        child: Center(
+          child: Container(
+            width: size.width * 0.4,
+            height: size.width * 0.58,
+            //color: backgroundcolor,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              image: DecorationImage(
+                image: NetworkImage(
+                  movielist,
+                ),
               ),
             ),
           ),
