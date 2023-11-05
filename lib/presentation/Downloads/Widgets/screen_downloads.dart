@@ -51,22 +51,27 @@ class ScreenDownload extends StatelessWidget {
             width: size.width,
             //color: white,
             child: Stack(
-              alignment: Alignment.center,
+             // alignment: Alignment.center,
               children: [
-                CircleAvatar(
-                  radius: size.width * 0.42,
-                  backgroundColor: downloadcirculargrey,
+                Center(
+                  child: CircleAvatar(
+                    radius: size.width * 0.42,
+                    backgroundColor: downloadcirculargrey,
+                  ),
                 ),
+                //img 1
                 Downloadsimagewidget(
                   movielist: movielist[2],
-                  margin: const EdgeInsets.only(left: 50),
+                  margin: const EdgeInsets.only(right: 20.0),
                   angle: 20,
                 ),
+                //img2
                 Downloadsimagewidget(
                   movielist: movielist[1],
-                  margin: const EdgeInsets.only(right: 50),
+                  margin: const EdgeInsets.only(left: 20.0),
                   angle: -20,
                 ),
+                //img3
                 Downloadsimagewidget(
                   movielist: movielist[0],
                   margin: const EdgeInsets.only(left: 0),
@@ -106,6 +111,7 @@ class ScreenDownload extends StatelessWidget {
   }
 }
 
+// extract widget
 class Downloadsimagewidget extends StatelessWidget {
   const Downloadsimagewidget({
     super.key,
@@ -123,15 +129,17 @@ class Downloadsimagewidget extends StatelessWidget {
     final Size size = MediaQuery.of(context).size;
     return Transform.rotate(
       angle: angle * pi / 180,
-      child: Container(
-        width: size.width * 0.4,
-        height: size.width * 0.58,
-        //color: backgroundcolor,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
-          image: DecorationImage(
-            image: NetworkImage(
-              movielist,
+      child: Center(
+        child: Container(
+          width: size.width * 0.4,
+          height: size.width * 0.58,
+          //color: backgroundcolor,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            image: DecorationImage(
+              image: NetworkImage(
+                movielist,
+              ),
             ),
           ),
         ),
