@@ -57,7 +57,7 @@ class ScreenDownload extends StatelessWidget {
                   radius: size.width * 0.37,
                   backgroundColor: downloadcirculargrey,
                 ),
-                downloadsimagewidget(size: size, movielist: movielist),
+                Downloadsimagewidget(size: size, movielist: movielist),
               ],
             ),
           ),
@@ -93,8 +93,8 @@ class ScreenDownload extends StatelessWidget {
   }
 }
 
-class downloadsimagewidget extends StatelessWidget {
-  const downloadsimagewidget({
+class Downloadsimagewidget extends StatelessWidget {
+  const Downloadsimagewidget({
     super.key,
     required this.size,
     required this.movielist,
