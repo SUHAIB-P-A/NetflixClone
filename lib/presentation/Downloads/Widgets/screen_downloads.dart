@@ -46,7 +46,7 @@ class ScreenDownload extends StatelessWidget {
           const Text(
               "We'll download a personalised selection of\nmovies and shows for you, so there's \nalways something to watch on your\n device"),
           // rotated image container
-          Container(
+          SizedBox(
             height: size.width,
             width: size.width,
             //color: white,
