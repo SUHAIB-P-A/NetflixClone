@@ -28,6 +28,7 @@ class ScreenDownload extends StatelessWidget {
         itemBuilder: (context, index) => sessions[index],
         separatorBuilder: (context, index) => const SizedBox(height: 20,),
         itemCount: sessions.length,
+        padding: const EdgeInsets.all(10),
       ),
     );
   }
