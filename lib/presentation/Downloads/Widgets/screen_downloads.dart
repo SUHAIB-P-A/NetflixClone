@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:netflix/core/colors/colors.dart';
 import 'package:netflix/core/constants/const.dart';
 import 'package:netflix/presentation/Widgets/app_bar_widget.dart';
@@ -37,21 +38,42 @@ class ScreenDownload extends StatelessWidget {
                 Icons.settings,
                 color: white,
               ),
+              SizedBox(
+                width: 2,
+              ),
               Text("Smart Downloads"),
             ],
           ),
           // text
-          const Text("Indroducing Downloads for You"),
+          Center(
+            child: Text(
+              "Indroducing Downloads for You",
+              style: GoogleFonts.oswald(
+                fontWeight: FontWeight.w700,
+                fontSize: 25,
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 2,
+          ),
           //text
-          const Text(
-              "We'll download a personalised selection of\nmovies and shows for you, so there's \nalways something to watch on your\n device"),
+          const Center(
+            child: Text(
+              "We'll download a personalised selection of\n     movies and shows for you, so there's\n      always something to watch on your\n                            device",
+              style: TextStyle(
+                fontSize: 14,
+                color: grey,
+              ),
+            ),
+          ),
           // rotated image container
           SizedBox(
             height: size.width,
             width: size.width,
             //color: white,
             child: Stack(
-             // alignment: Alignment.center,
+              // alignment: Alignment.center,
               children: [
                 Center(
                   child: CircleAvatar(
@@ -68,13 +90,15 @@ class ScreenDownload extends StatelessWidget {
                 //img2
                 Downloadsimagewidget(
                   movielist: movielist[1],
-                  margin: const EdgeInsets.only(right: 160,),
+                  margin: const EdgeInsets.only(
+                    right: 160,
+                  ),
                   angle: -15,
                 ),
                 //img3
                 Downloadsimagewidget(
                   movielist: movielist[0],
-                  margin: const EdgeInsets.only(left: 0,bottom: 40),
+                  margin: const EdgeInsets.only(left: 0, top: 15),
                 ),
               ],
             ),
@@ -127,21 +151,19 @@ class Downloadsimagewidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
-    return Container(
-      margin: margin,
-      child: Transform.rotate(
-        angle: angle * pi / 180,
-        child: Center(
-          child: Container(
-            width: size.width * 0.4,
-            height: size.width * 0.58,
-            //color: backgroundcolor,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              image: DecorationImage(
-                image: NetworkImage(
-                  movielist,
-                ),
+    return Transform.rotate(
+      angle: angle * pi / 180,
+      child: Center(
+        child: Container(
+          margin: margin,
+          width: size.width * 0.4,
+          height: size.width * 0.58,
+          //color: backgroundcolor,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            image: DecorationImage(
+              image: NetworkImage(
+                movielist,
               ),
             ),
           ),
