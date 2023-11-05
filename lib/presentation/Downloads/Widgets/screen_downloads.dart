@@ -104,28 +104,41 @@ class ScreenDownload extends StatelessWidget {
             ),
           ),
           //setup button
-          MaterialButton(
-            onPressed: () {},
-            color: downloadmeterialblue,
-            child: const Text(
-              "Setup",
-              style: TextStyle(
-                color: white,
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: MaterialButton(
+              onPressed: () {},
+              color: downloadmeterialblue,
+              padding: const EdgeInsets.all(10),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+              child: const Text(
+                "Setup",
+                style: TextStyle(
+                  color: white,
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
           ),
           //another botton
-          MaterialButton(
-            onPressed: () {},
-            color: downloadmeterialwhite,
-            child: const Text(
-              "See What you can download",
-              style: TextStyle(
-                color: backgroundcolor,
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
+          Padding(
+            padding: const EdgeInsets.only(left: 30, right: 30),
+            child: MaterialButton(
+              onPressed: () {},
+              color: downloadmeterialwhite,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+              child: const Text(
+                "See What you can download",
+                style: TextStyle(
+                  color: backgroundcolor,
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
           ),
