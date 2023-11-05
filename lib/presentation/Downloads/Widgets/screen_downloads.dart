@@ -54,10 +54,23 @@ class ScreenDownload extends StatelessWidget {
               alignment: Alignment.center,
               children: [
                 CircleAvatar(
-                  radius: size.width * 0.37,
+                  radius: size.width * 0.42,
                   backgroundColor: downloadcirculargrey,
                 ),
-                Downloadsimagewidget(size: size, movielist: movielist),
+                Downloadsimagewidget(
+                  movielist: movielist[2],
+                  margin: const EdgeInsets.only(left: 50),
+                  angle: 20,
+                ),
+                Downloadsimagewidget(
+                  movielist: movielist[1],
+                  margin: const EdgeInsets.only(right: 50),
+                  angle: -20,
+                ),
+                Downloadsimagewidget(
+                  movielist: movielist[0],
+                  margin: const EdgeInsets.only(left: 0),
+                ),
               ],
             ),
           ),
@@ -97,15 +110,19 @@ class Downloadsimagewidget extends StatelessWidget {
   const Downloadsimagewidget({
     super.key,
     required this.movielist,
+    this.angle = 0,
+    required this.margin,
   });
 
-  final List movielist;
+  final String movielist;
+  final double angle;
+  final EdgeInsets margin;
 
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
     return Transform.rotate(
-      angle: 20 * pi / 180,
+      angle: angle * pi / 180,
       child: Container(
         width: size.width * 0.4,
         height: size.width * 0.58,
@@ -114,7 +131,7 @@ class Downloadsimagewidget extends StatelessWidget {
           borderRadius: BorderRadius.circular(10),
           image: DecorationImage(
             image: NetworkImage(
-              movielist[2],
+              movielist,
             ),
           ),
         ),
