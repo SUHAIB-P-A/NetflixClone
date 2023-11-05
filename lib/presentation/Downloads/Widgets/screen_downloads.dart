@@ -77,7 +77,7 @@ class ScreenDownload extends StatelessWidget {
               children: [
                 Center(
                   child: CircleAvatar(
-                    radius: size.width * 0.42,
+                    radius: size.width * 0.39,
                     backgroundColor: downloadcirculargrey,
                   ),
                 ),
