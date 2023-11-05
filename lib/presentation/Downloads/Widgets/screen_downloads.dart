@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:netflix/core/colors/colors.dart';
 import 'package:netflix/core/constants/const.dart';
@@ -7,9 +9,10 @@ class ScreenDownload extends StatelessWidget {
   ScreenDownload({super.key});
 
   final List movielist = [
-    'https://www.themoviedb.org/t/p/w600_and_h900_bestv2/A4j8S6moJS2zNtRR8oWF08gRnL5.jpg',
-    'https://www.themoviedb.org/movie/575264',
-    'https://www.themoviedb.org/movie/926393',
+    'https://m.media-amazon.com/images/M/MV5BMDk0ZmVmMTktOGNiNS00Yzg5LWIzZTAtNjUxZWZhZDljY2Y0XkEyXkFqcGdeQXVyMTY1MzAyNjU4._V1_.jpg',
+    'https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_FMjpg_UY720_.jpg',
+    'https://m.media-amazon.com/images/M/MV5BNTMxZTQ1ZmEtOWM3Ny00MGQzLTgyMjgtZGMzNDM0YjVhZjMzXkEyXkFqcGdeQXVyMjkxNzQ1NDI@._V1_FMjpg_UY467_.jpg',
+    'https://www.themoviedb.org/t/p/w300_and_h450_bestv2/hTP1DtLGFamjfu8WqjnuQdP1n4i.jpg'
   ];
 
   @override
@@ -46,26 +49,15 @@ class ScreenDownload extends StatelessWidget {
           Container(
             height: size.width,
             width: size.width,
-            color: white,
+            //color: white,
             child: Stack(
               alignment: Alignment.center,
               children: [
                 CircleAvatar(
                   radius: size.width * 0.37,
+                  backgroundColor: downloadcirculargrey,
                 ),
-                Container(
-                  width: size.width * 0.45,
-                  height: size.width * 0.58,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(25),
-                    image: DecorationImage(
-                      image: NetworkImage(
-                        movielist[0],
-                        scale: 5.0,
-                      ),
-                    ),
-                  ),
-                ),
+                downloadsimagewidget(size: size, movielist: movielist),
               ],
             ),
           ),
@@ -96,6 +88,37 @@ class ScreenDownload extends StatelessWidget {
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class downloadsimagewidget extends StatelessWidget {
+  const downloadsimagewidget({
+    super.key,
+    required this.size,
+    required this.movielist,
+  });
+
+  final Size size;
+  final List movielist;
+
+  @override
+  Widget build(BuildContext context) {
+    return Transform.rotate(
+      angle: 20*pi/180,
+      child: Container(
+        width: size.width * 0.4,
+        height: size.width * 0.58,
+        //color: backgroundcolor,
+         decoration: BoxDecoration(
+           borderRadius: BorderRadius.circular(10),
+           image: DecorationImage(
+             image: NetworkImage(
+               movielist[2],
+             ),
+           ),
+         ),
       ),
     );
   }

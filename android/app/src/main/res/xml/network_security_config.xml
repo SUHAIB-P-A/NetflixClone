@@ -3,7 +3,7 @@
     <domain-config>
         <domain includeSubdomains="true">themoviedb.org</domain>
         <trust-anchors>
-            <certificates src="@raw/my_ca"/>
+            <certificates src="@raw/my_cn"/>
         </trust-anchors>
     </domain-config>
 </network-security-config>
