@@ -21,6 +21,7 @@ class ScarchIdel extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
+        khight20,
         Expanded(
           child: ListView.separated(
             shrinkWrap: true,
