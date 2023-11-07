@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:netflix/core/colors/colors.dart';
 import 'package:netflix/core/constants/const.dart';
 
 const image =
@@ -39,6 +41,7 @@ class SearchIdelItem extends StatelessWidget {
   Widget build(BuildContext context) {
     final screenwidth = MediaQuery.of(context).size.width;
     return Row(
+      //mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Container(
           width: screenwidth * 0.37,
@@ -50,15 +53,21 @@ class SearchIdelItem extends StatelessWidget {
             ),
           ),
         ),
-        kwidth,
-        const Text(
-          "Movie Name",
-          style: TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.bold,
+        kwidth20,
+        const Expanded(
+          child: Text(
+            "Movie Name",
+            style: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ),
-        
+        const Icon(
+          CupertinoIcons.play_circle,
+          color: grey,
+          size: 50,
+        ),
       ],
     );
   }
