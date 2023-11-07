@@ -16,6 +16,7 @@ class ScreenSearch extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              //search bar
               CupertinoSearchTextField(
                 prefixIcon: const Icon(
                   CupertinoIcons.search,

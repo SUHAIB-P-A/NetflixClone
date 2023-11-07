@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
+//import 'package:flutter/material.dart';
 import 'package:netflix/core/colors/colors.dart';
 import 'package:netflix/core/constants/const.dart';
 
@@ -22,6 +22,7 @@ class ScarchIdel extends StatelessWidget {
           ),
         ),
         khight20,
+        //list view for the below row
         Expanded(
           child: ListView.separated(
             shrinkWrap: true,
@@ -35,6 +36,7 @@ class ScarchIdel extends StatelessWidget {
   }
 }
 
+// row carry movie image,movie name and a play icon
 class SearchIdelItem extends StatelessWidget {
   const SearchIdelItem({super.key});
 
@@ -42,7 +44,6 @@ class SearchIdelItem extends StatelessWidget {
   Widget build(BuildContext context) {
     final screenwidth = MediaQuery.of(context).size.width;
     return Row(
-      //mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Container(
           width: screenwidth * 0.37,
