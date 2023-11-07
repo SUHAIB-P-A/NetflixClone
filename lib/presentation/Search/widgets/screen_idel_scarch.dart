@@ -13,9 +13,9 @@ class ScarchIdel extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const Text(
-          "Top Search",
+          "Top Searches",
           style: TextStyle(
-            fontSize: 30,
+            fontSize: 25,
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -23,7 +23,7 @@ class ScarchIdel extends StatelessWidget {
           child: ListView.separated(
             shrinkWrap: true,
             itemBuilder: (context, index) => const SearchIdelItem(),
-            separatorBuilder: (context, index) => khight,
+            separatorBuilder: (context, index) => khight20,
             itemCount: 10,
           ),
         ),
@@ -41,14 +41,24 @@ class SearchIdelItem extends StatelessWidget {
     return Row(
       children: [
         Container(
-          width: screenwidth * 0.3,
-          height: 100,
+          width: screenwidth * 0.37,
+          height: 65,
           decoration: const BoxDecoration(
             image: DecorationImage(
+              fit: BoxFit.cover,
               image: NetworkImage(image),
             ),
           ),
         ),
+        kwidth,
+        const Text(
+          "Movie Name",
+          style: TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        
       ],
     );
   }
