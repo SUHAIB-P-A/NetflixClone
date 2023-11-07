@@ -29,7 +29,7 @@ class ScreenSearch extends StatelessWidget {
                 style: const TextStyle(color: white),
               ),
               khight,
-              const ScarchIdel()
+              const Expanded(child: ScarchIdel())
             ],
           ),
         ),
