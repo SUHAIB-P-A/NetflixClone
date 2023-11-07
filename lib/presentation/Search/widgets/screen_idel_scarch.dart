@@ -33,8 +33,6 @@ class ScarchIdel extends StatelessWidget {
   }
 }
 
-
-
 // row carry movie image,movie name and a play icon
 class SearchIdelItem extends StatelessWidget {
   const SearchIdelItem({super.key});
@@ -47,8 +45,9 @@ class SearchIdelItem extends StatelessWidget {
         Container(
           width: screenwidth * 0.37,
           height: 65,
-          decoration: const BoxDecoration(
-            image: DecorationImage(
+          decoration:  BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            image: const DecorationImage(
               fit: BoxFit.cover,
               image: NetworkImage(image),
             ),
