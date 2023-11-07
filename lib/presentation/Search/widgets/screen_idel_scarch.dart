@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 //import 'package:flutter/material.dart';
 import 'package:netflix/core/colors/colors.dart';
 import 'package:netflix/core/constants/const.dart';
+import 'package:netflix/presentation/Search/widgets/scrch_screen_title.dart';
 
 const image =
     'https://m.media-amazon.com/images/M/MV5BM2ZkZGVkYTEtOGMzZi00ODZhLTk3OWUtZjY3MWY4MDY0MTk5XkEyXkFqcGdeQXVyMTQ3Mzk2MDg4._V1_.jpg';
@@ -14,12 +15,8 @@ class ScarchIdel extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text(
-          "Top Searches",
-          style: TextStyle(
-            fontSize: 25,
-            fontWeight: FontWeight.bold,
-          ),
+        const ScarchTitle(
+          title: "Top Searches",
         ),
         khight20,
         //list view for the below row
@@ -35,6 +32,8 @@ class ScarchIdel extends StatelessWidget {
     );
   }
 }
+
+
 
 // row carry movie image,movie name and a play icon
 class SearchIdelItem extends StatelessWidget {
