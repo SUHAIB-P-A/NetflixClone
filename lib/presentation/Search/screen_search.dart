@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:netflix/core/colors/colors.dart';
+import 'package:netflix/core/constants/const.dart';
+import 'package:netflix/presentation/Search/widgets/screen_idel_scarch.dart';
 
 class ScreenSearch extends StatelessWidget {
   const ScreenSearch({super.key});
@@ -12,6 +14,7 @@ class ScreenSearch extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(10.0),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               CupertinoSearchTextField(
                 prefixIcon: const Icon(
@@ -25,6 +28,8 @@ class ScreenSearch extends StatelessWidget {
                 backgroundColor: grey.withOpacity(0.4),
                 style: const TextStyle(color: white),
               ),
+              khight,
+              const ScarchIdel()
             ],
           ),
         ),
