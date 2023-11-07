@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:netflix/core/colors/colors.dart';
 import 'package:netflix/core/constants/const.dart';
 import 'package:netflix/presentation/Search/widgets/screen_idel_scarch.dart';
+import 'package:netflix/presentation/Search/widgets/screen_scarch_result.dart';
 
 class ScreenSearch extends StatelessWidget {
   const ScreenSearch({super.key});
@@ -30,7 +31,8 @@ class ScreenSearch extends StatelessWidget {
                 style: const TextStyle(color: white),
               ),
               khight,
-              const Expanded(child: ScarchIdel())
+              //const Expanded(child: ScarchIdel())
+              const Expanded(child: Screenresult())
             ],
           ),
         ),
