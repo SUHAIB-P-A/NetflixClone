@@ -9,10 +9,11 @@ class ScreenFastLaugh extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: PageView(
+          scrollDirection: Axis.vertical,
           children: List.generate(
             10,
             (index) {
-              return const VideoListItem();
+              return VideoListItem(index: index,);
             },
           ),
         ),
