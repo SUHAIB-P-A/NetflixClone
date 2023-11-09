@@ -15,10 +15,8 @@ class VideoListItem extends StatelessWidget {
         Container(
           color: Colors.accents[index % Colors.accents.length],
         ),
-        Positioned(
-          bottom: 0,
-          left: 0,
-          right: 0,
+        Align(
+          alignment: Alignment.bottomCenter,
           child: Row(
             children: [
               IconButton(
