@@ -15,7 +15,10 @@ class VideoListItem extends StatelessWidget {
         Container(
           color: Colors.accents[index % Colors.accents.length],
         ),
-        CircleAvatar(
+        Positioned(
+          bottom: 0,
+          left: 0,
+          right: 0,
           child: Row(
             children: [
               IconButton(
