@@ -51,4 +51,22 @@ class VideoListItem extends StatelessWidget {
   }
 }
 
+class VideoActions extends StatelessWidget {
+  final IconData icon;
+  final String title;
+  const VideoActions({
+    super.key,
+    required this.icon,
+    required this.title,
+  });
 
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Icon(icon),
+        Text(title),
+      ],
+    );
+  }
+}
