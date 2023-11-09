@@ -35,7 +35,13 @@ class VideoListItem extends StatelessWidget {
                 const Column(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    CircleAvatar(),
+                    Padding(
+                      padding: EdgeInsets.symmetric(vertical: 10),
+                      child: CircleAvatar(
+                        radius: 30,
+                        backgroundImage: NetworkImage('https://himalayantribune.com/wp-content/uploads/2020/07/TIGER-1024x647.jpg'),
+                      ),
+                    ),
                     VideoActions(
                         icon: Icons.emoji_emotions_outlined, title: 'LOL'),
                     VideoActions(icon: Icons.add, title: 'ADD'),
