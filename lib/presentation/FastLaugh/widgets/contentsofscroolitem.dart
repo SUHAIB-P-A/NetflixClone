@@ -32,14 +32,14 @@ class VideoListItem extends StatelessWidget {
                     icon: const Icon(Icons.volume_off_outlined),
                   ),
                 ),
-                Column(
+                const Column(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     CircleAvatar(),
-                    CircleAvatar(),
-                    CircleAvatar(),
-                    CircleAvatar(),
-                    CircleAvatar(),
+                    VideoActions(icon: Icons.emoji_emotions_outlined, title: 'LOL'),
+                    VideoActions(icon: Icons.add, title: 'ADD'),
+                    VideoActions(icon: Icons.share, title: 'share'),
+                    VideoActions(icon: Icons.play_arrow_outlined, title: 'play'),
                   ],
                 ),
               ],
