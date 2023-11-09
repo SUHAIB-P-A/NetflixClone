@@ -36,10 +36,12 @@ class VideoListItem extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     CircleAvatar(),
-                    VideoActions(icon: Icons.emoji_emotions_outlined, title: 'LOL'),
+                    VideoActions(
+                        icon: Icons.emoji_emotions_outlined, title: 'LOL'),
                     VideoActions(icon: Icons.add, title: 'ADD'),
-                    VideoActions(icon: Icons.share, title: 'share'),
-                    VideoActions(icon: Icons.play_arrow_outlined, title: 'play'),
+                    VideoActions(icon: Icons.share, title: 'SHARE'),
+                    VideoActions(
+                        icon: Icons.play_arrow_outlined, title: 'PLAY'),
                   ],
                 ),
               ],
@@ -62,11 +64,21 @@ class VideoActions extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Icon(icon),
-        Text(title),
-      ],
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+      child: Column(
+        children: [
+          Icon(
+            icon,
+            color: white,
+            size: 30,
+          ),
+          Text(
+            title,
+            style: const TextStyle(fontSize: 16),
+          ),
+        ],
+      ),
     );
   }
 }
