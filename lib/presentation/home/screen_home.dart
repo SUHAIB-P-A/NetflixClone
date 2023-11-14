@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:netflix/presentation/home/widgets/title.dart';
 
 class ScreenHome extends StatelessWidget {
   const ScreenHome({super.key});
@@ -6,8 +7,10 @@ class ScreenHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: Center(
-        child: Text("Home"),
+      body: SafeArea(
+        child: MainText(
+          title: "hello",
+        ),
       ),
     );
   }
