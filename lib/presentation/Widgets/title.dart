@@ -14,7 +14,7 @@ class MainText extends StatelessWidget {
       child: Text(
         title,
         style: const TextStyle(
-          fontSize: 25,
+          fontSize: 20,
           fontWeight: FontWeight.bold,
         ),
       ),
