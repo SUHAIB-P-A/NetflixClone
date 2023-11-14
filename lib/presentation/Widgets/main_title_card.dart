@@ -4,15 +4,17 @@ import 'package:netflix/presentation/Widgets/title.dart';
 
 class MainTitleCard extends StatelessWidget {
   const MainTitleCard({
+    required this.title,
     super.key,
   });
+  final String title;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const MainText(title: "Released in the past year"),
+        MainText(title: title),
         LimitedBox(
           maxHeight: 230,
           child: ListView(
