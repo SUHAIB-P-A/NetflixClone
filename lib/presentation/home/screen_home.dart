@@ -8,8 +8,10 @@ class ScreenHome extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: SafeArea(
-        child: MainText(
-          title: "hello",
+        child: Column(
+          children: [
+            MainText(title: "Released in the past year"),
+          ],
         ),
       ),
     );
