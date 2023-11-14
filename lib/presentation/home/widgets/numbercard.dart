@@ -40,11 +40,12 @@ class NumberCard extends StatelessWidget {
           child: BorderedText(
             strokeWidth: 5.0,
             strokeColor: white,
-            child: Text("${index+1}",
-            style: TextStyle(fontSize: 80,
-            fontWeight: FontWeight.bold,
-            color: backgroundcolor.withOpacity(0.9)
-            ),
+            child: Text(
+              "${index + 1}",
+              style: TextStyle(
+                  fontSize: 80,
+                  fontWeight: FontWeight.bold,
+                  color: backgroundcolor.withOpacity(0.9)),
             ),
           ),
         )

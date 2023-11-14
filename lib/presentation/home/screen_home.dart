@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:netflix/core/constants/const.dart';
-import 'package:netflix/presentation/Widgets/main_card.dart';
 import 'package:netflix/presentation/Widgets/main_title_card.dart';
-import 'package:netflix/presentation/Widgets/title.dart';
-import 'package:netflix/presentation/home/widgets/numbercard.dart';
+import 'package:netflix/presentation/home/widgets/numberwidgetcard.dart';
 
 class ScreenHome extends StatelessWidget {
   const ScreenHome({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
@@ -22,24 +20,8 @@ class ScreenHome extends StatelessWidget {
               MainTitleCard(
                 title: "Trending now",
               ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  MainText(title: "Top 10 Movie Shows In India Today"),
-                  LimitedBox(
-                    maxHeight: 230,
-                    child: ListView(
-                      scrollDirection: Axis.horizontal,
-                      children: List.generate(
-                        10,
-                        (index) => NumberCard(
-                          index: index,
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+              khight,
+              NumberCardUi(),
               khight,
               MainTitleCard(
                 title: "Tense Dramas",
