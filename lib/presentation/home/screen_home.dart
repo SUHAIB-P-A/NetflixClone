@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:netflix/core/colors/colors.dart';
 
 import 'package:netflix/core/constants/const.dart';
 import 'package:netflix/presentation/Widgets/main_title_card.dart';
 import 'package:netflix/presentation/home/widgets/backgroundcard.dart';
-import 'package:netflix/presentation/home/widgets/bottomicon.dart';
+
 import 'package:netflix/presentation/home/widgets/numberwidgetcard.dart';
 
 class ScreenHome extends StatelessWidget {
