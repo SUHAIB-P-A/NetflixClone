@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:netflix/core/colors/colors.dart';
-import 'package:netflix/core/constants/const.dart';
 
 class BottomIconHome extends StatelessWidget {
+  final IconData icon;
+  final String text;
   const BottomIconHome({
+    required this.icon,
+    required this.text,
     super.key,
   });
 
@@ -12,10 +15,11 @@ class BottomIconHome extends StatelessWidget {
     return Column(
       children: [
         Icon(
-          addicon,
+          icon,
+          size: 40,
           color: white,
         ),
-        Text("Add List"),
+        Text(text),
       ],
     );
   }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:netflix/core/colors/colors.dart';
 
 import 'package:netflix/core/constants/const.dart';
 import 'package:netflix/presentation/Widgets/main_title_card.dart';
@@ -16,7 +17,6 @@ class ScreenHome extends StatelessWidget {
           child: Column(
             children: [
               Stack(
-                
                 children: [
                   Container(
                     width: double.infinity,
@@ -28,16 +28,40 @@ class ScreenHome extends StatelessWidget {
                       ),
                     ),
                   ),
-                  BottomIconHome(),
-                  Align(
-                    //alignment: Alignment.bottomCenter,
-                    child: TextButton.icon(
-                      onPressed: () {},
-                      icon: Icon(playicon),
-                      label: Text('Play'),
+                  Positioned(
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    child: Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          BottomIconHome(icon: addicon, text: "Add List"),
+                          TextButton.icon(
+                            style: ButtonStyle(
+                              backgroundColor: MaterialStateProperty.all(white),
+                            ),
+                            onPressed: () {},
+                            icon: Icon(
+                              playicon,
+                              color: backgroundcolor,
+                            ),
+                            label: Text(
+                              'Play',
+                              style: TextStyle(
+                                color: backgroundcolor,
+                              ),
+                            ),
+                          ),
+                          BottomIconHome(
+                            icon: infoicon,
+                            text: "Info",
+                          ),
+                        ],
+                      ),
                     ),
                   ),
-                  BottomIconHome()
                 ],
               ),
               MainTitleCard(
@@ -62,4 +86,3 @@ class ScreenHome extends StatelessWidget {
     );
   }
 }
-

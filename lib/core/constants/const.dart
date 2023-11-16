@@ -24,3 +24,4 @@ const img="https://m.media-amazon.com/images/M/MV5BN2IzYzBiOTQtNGZmMi00NDI5LTgxM
 // button icon(home)
 const IconData playicon = Icons.play_arrow_rounded; 
 const IconData addicon = Icons.add;
+const IconData infoicon = Icons.info_outline_rounded;
