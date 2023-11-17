@@ -7,6 +7,8 @@ import 'package:netflix/presentation/home/widgets/backgroundcard.dart';
 
 import 'package:netflix/presentation/home/widgets/numberwidgetcard.dart';
 
+ValueNotifier<bool> scrollnotifier = ValueNotifier(true);
+
 class ScreenHome extends StatelessWidget {
   const ScreenHome({super.key});
 
@@ -14,34 +16,47 @@ class ScreenHome extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: NotificationListener<UserScrollNotification>(
-          onNotification: (notification) {
-            final ScrollDirection direction = notification.direction;
-            print(direction);
-            return true;
-          },
-          child: ListView(
-            children: [
-              BackgroundCard(),
-              MainTitleCard(
-                title: "Released in the past year",
-              ),
-              khight,
-              MainTitleCard(
-                title: "Trending now",
-              ),
-              khight,
-              NumberCardUi(),
-              khight,
-              MainTitleCard(
-                title: "Tense Dramas",
-              ),
-              khight,
-              MainTitleCard(title: "South Indian Cinima")
-            ],
-          ),
-        ),
-      ),
+          child: ValueListenableBuilder(
+        valueListenable: scrollnotifier,
+        builder: (
+          context,
+          value,
+          _,
+        ) {
+          return NotificationListener<UserScrollNotification>(
+            onNotification: (notification) {
+              final ScrollDirection direction = notification.direction;
+              print(direction);
+              if (direction == ScrollDirection.reverse) {
+                scrollnotifier.value = false;
+              } else if (direction == ScrollDirection.forward) {
+                scrollnotifier.value = true;
+              }
+              return true;
+            },
+            child: ListView(
+              children: [
+                BackgroundCard(),
+                MainTitleCard(
+                  title: "Released in the past year",
+                ),
+                khight,
+                MainTitleCard(
+                  title: "Trending now",
+                ),
+                khight,
+                NumberCardUi(),
+                khight,
+                MainTitleCard(
+                  title: "Tense Dramas",
+                ),
+                khight,
+                MainTitleCard(title: "South Indian Cinima")
+              ],
+            ),
+          );
+        },
+      )),
     );
   }
 }
