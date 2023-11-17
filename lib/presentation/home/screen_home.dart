@@ -57,11 +57,13 @@ class ScreenHome extends StatelessWidget {
                     MainTitleCard(title: "South Indian Cinima")
                   ],
                 ),
-                Container(
-                  height: 100,
-                  width: double.infinity,
-                  color: white,
-                ),
+                scrollnotifier.value == true
+                    ? Container(
+                        height: 100,
+                        width: double.infinity,
+                        color: white,
+                      )
+                    : khight
               ],
             ),
           );
