@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:netflix/core/colors/colors.dart';
 
 import 'package:netflix/core/constants/const.dart';
 import 'package:netflix/presentation/Widgets/main_title_card.dart';
@@ -26,7 +27,7 @@ class ScreenHome extends StatelessWidget {
           return NotificationListener<UserScrollNotification>(
             onNotification: (notification) {
               final ScrollDirection direction = notification.direction;
-              print(direction);
+              //print(direction);
               if (direction == ScrollDirection.reverse) {
                 scrollnotifier.value = false;
               } else if (direction == ScrollDirection.forward) {
@@ -34,24 +35,33 @@ class ScreenHome extends StatelessWidget {
               }
               return true;
             },
-            child: ListView(
+            child: Stack(
               children: [
-                BackgroundCard(),
-                MainTitleCard(
-                  title: "Released in the past year",
+                ListView(
+                  children: const [
+                    BackgroundCard(),
+                    MainTitleCard(
+                      title: "Released in the past year",
+                    ),
+                    khight,
+                    MainTitleCard(
+                      title: "Trending now",
+                    ),
+                    khight,
+                    NumberCardUi(),
+                    khight,
+                    MainTitleCard(
+                      title: "Tense Dramas",
+                    ),
+                    khight,
+                    MainTitleCard(title: "South Indian Cinima")
+                  ],
                 ),
-                khight,
-                MainTitleCard(
-                  title: "Trending now",
+                Container(
+                  height: 100,
+                  width: double.infinity,
+                  color: white,
                 ),
-                khight,
-                NumberCardUi(),
-                khight,
-                MainTitleCard(
-                  title: "Tense Dramas",
-                ),
-                khight,
-                MainTitleCard(title: "South Indian Cinima")
               ],
             ),
           );
