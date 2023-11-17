@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
 import 'package:netflix/core/constants/const.dart';
 import 'package:netflix/presentation/Widgets/main_title_card.dart';
@@ -13,8 +14,13 @@ class ScreenHome extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
+        child: NotificationListener<UserScrollNotification>(
+          onNotification: (notification) {
+            final ScrollDirection direction = notification.direction;
+            print(direction);
+            return true;
+          },
+          child: ListView(
             children: [
               BackgroundCard(),
               MainTitleCard(
