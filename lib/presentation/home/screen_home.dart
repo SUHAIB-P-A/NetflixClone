@@ -58,10 +58,63 @@ class ScreenHome extends StatelessWidget {
                   ],
                 ),
                 scrollnotifier.value == true
-                    ? Container(
+                    ? AnimatedContainer(
+                        duration: const Duration(milliseconds: 5000),
                         height: 100,
                         width: double.infinity,
-                        color: white,
+                        color: Colors.transparent,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Row(
+                              children: [
+                                const Image(
+                                  image: NetworkImage(logonetflix),
+                                  height: 40,
+                                  width: 60,
+                                ),
+                                const Spacer(),
+                                const Icon(
+                                  casticon,
+                                  color: white,
+                                ),
+                                kwidth,
+                                Container(
+                                  height: 20,
+                                  width: 20,
+                                  color: blue,
+                                ),
+                                kwidth,
+                              ],
+                            ),
+                            const Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Text(
+                                  "TV Shows",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 16,
+                                  ),
+                                ),
+                                Text(
+                                  "Movies",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 16,
+                                  ),
+                                ),
+                                Text(
+                                  "categories",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 16,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
                       )
                     : khight
               ],
