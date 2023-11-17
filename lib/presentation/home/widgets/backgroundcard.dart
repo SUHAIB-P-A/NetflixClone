@@ -13,7 +13,7 @@ class BackgroundCard extends StatelessWidget {
                   Container(
                     width: double.infinity,
                     height: 650,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       image: DecorationImage(
                         fit: BoxFit.cover,
                         image: NetworkImage(img),
@@ -29,9 +29,9 @@ class BackgroundCard extends StatelessWidget {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          BottomIconHome(icon: addicon, text: "Add List"),
+                          const BottomIconHome(icon: addicon, text: "Add List"),
                           _playbutton(),
-                          BottomIconHome(
+                          const BottomIconHome(
                             icon: infoicon,
                             text: "Info",
                           ),
@@ -50,11 +50,11 @@ TextButton _playbutton() {
         backgroundColor: MaterialStateProperty.all(white),
       ),
       onPressed: () {},
-      icon: Icon(
+      icon: const Icon(
         playicon,
         color: backgroundcolor,
       ),
-      label: Text(
+      label: const Text(
         'Play',
         style: TextStyle(
           color: backgroundcolor,
