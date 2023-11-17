@@ -87,29 +87,20 @@ class ScreenHome extends StatelessWidget {
                                 kwidth,
                               ],
                             ),
-                            const Row(
+                            Row(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
                                 Text(
                                   "TV Shows",
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 16,
-                                  ),
+                                  style: kstyle,
                                 ),
                                 Text(
                                   "Movies",
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 16,
-                                  ),
+                                  style: kstyle,
                                 ),
                                 Text(
                                   "categories",
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 16,
-                                  ),
+                                  style: kstyle,
                                 ),
                               ],
                             ),
