@@ -5,6 +5,7 @@ import 'package:netflix/core/colors/colors.dart';
 import 'package:netflix/core/constants/const.dart';
 import 'package:netflix/presentation/Widgets/main_title_card.dart';
 import 'package:netflix/presentation/home/widgets/backgroundcard.dart';
+import 'package:netflix/presentation/home/widgets/hideingbar.dart';
 
 import 'package:netflix/presentation/home/widgets/numberwidgetcard.dart';
 
@@ -58,55 +59,7 @@ class ScreenHome extends StatelessWidget {
                   ],
                 ),
                 scrollnotifier.value == true
-                    ? AnimatedContainer(
-                        duration: const Duration(milliseconds: 5000),
-                        height: 100,
-                        width: double.infinity,
-                        color: Colors.transparent,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Row(
-                              children: [
-                                const Image(
-                                  image: NetworkImage(logonetflix),
-                                  height: 40,
-                                  width: 60,
-                                ),
-                                const Spacer(),
-                                const Icon(
-                                  casticon,
-                                  color: white,
-                                ),
-                                kwidth,
-                                Container(
-                                  height: 20,
-                                  width: 20,
-                                  color: blue,
-                                ),
-                                kwidth,
-                              ],
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                Text(
-                                  "TV Shows",
-                                  style: kstyle,
-                                ),
-                                Text(
-                                  "Movies",
-                                  style: kstyle,
-                                ),
-                                Text(
-                                  "categories",
-                                  style: kstyle,
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      )
+                    ? const HideingBar()
                     : khight
               ],
             ),
@@ -116,3 +69,4 @@ class ScreenHome extends StatelessWidget {
     );
   }
 }
+
