@@ -12,7 +12,7 @@ class ScreenNewandHot extends StatelessWidget {
       length: 2,
       child: Scaffold(
         appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(80),
+          preferredSize: const Size.fromHeight(90),
           child: AppBar(
             automaticallyImplyLeading: false,
             title: Text(
@@ -37,7 +37,10 @@ class ScreenNewandHot extends StatelessWidget {
               kwidth,
             ],
             bottom: TabBar(
-              automaticIndicatorColorAdjustment: false,
+              padding: const EdgeInsets.only(top: 20),
+              dividerColor: transparent,
+              indicatorSize: TabBarIndicatorSize.tab,
+              indicatorColor: transparent,
               labelStyle: const TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 16,
@@ -62,7 +65,17 @@ class ScreenNewandHot extends StatelessWidget {
             ),
           ),
         ),
+        body: TabBarView(children: [
+          _bottombarview("comming soon"),
+          _bottombarview("everyone's watching"),
+        ]),
       ),
+    );
+  }
+
+  _bottombarview(String name) {
+    return Center(
+      child: Text("$name"),
     );
   }
 }
