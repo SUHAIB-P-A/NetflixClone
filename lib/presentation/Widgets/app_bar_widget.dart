@@ -4,14 +4,14 @@ import 'package:netflix/core/colors/colors.dart';
 import 'package:netflix/core/constants/const.dart';
 
 class AppBarWidget extends StatelessWidget {
-  const AppBarWidget({super.key, required this.title});
+  const AppBarWidget({super.key,required this.title});
   final String title;
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
-        kwidth,
+       kwidth,
         Text(
           title,
           style: GoogleFonts.oswald(

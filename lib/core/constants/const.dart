@@ -17,6 +17,7 @@ const kwidth20 = SizedBox(
 
 //border radius
 final kradius10 = BorderRadius.circular(10);
+final kradius30 = BorderRadius.circular(30);
 
 //bg image link(home)
 const img =
