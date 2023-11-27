@@ -103,12 +103,38 @@ class ScreenNewandHot extends StatelessWidget {
                 ],
               ),
             ),
-            Container(
+            SizedBox(
               height: 500,
               width: size.width - 60,
-              color: blue,
+              child: Stack(
+                children: [
+                  SizedBox(
+                    height: 220,
+                    width: double.infinity,
+                    child: Image.network(
+                      newandkottempimg,
+                      fit: BoxFit.fitHeight,
+                    ),
+                  ),
+                  Positioned(
+                    
+                    bottom: 280,
+                    right: 5,
+                    child: CircleAvatar(
+                      backgroundColor: transparent.withOpacity(0.2),
+                      radius: 20,
+                      child: IconButton(
+                        onPressed: () {},
+                        icon: const Icon(
+                          Icons.volume_off_outlined,
+                          color: white,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
-            
           ],
         )
       ],

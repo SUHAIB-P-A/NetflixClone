@@ -24,6 +24,8 @@ const img =
     "https://m.media-amazon.com/images/M/MV5BN2IzYzBiOTQtNGZmMi00NDI5LTgxMzMtN2EzZjA1NjhlOGMxXkEyXkFqcGdeQXVyNjAwNDUxODI@._V1_FMjpg_UY480_.jpg";
 const logonetflix = "https://pngimg.com/uploads/netflix/netflix_PNG15.png";
 
+const newandkottempimg = "https://m.media-amazon.com/images/M/MV5BMmExYmIwM2EtZTNkNS00ZTVjLTlhZjctZDRiOGFhNWZiNmQyXkEyXkFqcGdeQXVyMTEyMjM2NDc2._V1_FMjpg_UX320_.jpg";
+
 // button icon(home)
 const IconData playicon = Icons.play_arrow_rounded;
 const IconData addicon = Icons.add;
