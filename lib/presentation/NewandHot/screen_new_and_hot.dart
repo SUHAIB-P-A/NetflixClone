@@ -66,16 +66,57 @@ class ScreenNewandHot extends StatelessWidget {
           ),
         ),
         body: TabBarView(children: [
-          _bottombarview("comming soon"),
-          _bottombarview("everyone's watching"),
+          _bottomcommonsoon(context),
+          _bottomeveryonewatching(),
         ]),
       ),
     );
   }
 
-  _bottombarview(String name) {
-    return Center(
-      child: Text("$name"),
+//comming soon screen
+  Widget _bottomcommonsoon(BuildContext context) {
+    final Size size = MediaQuery.of(context).size;
+    return ListView(
+      children: [
+        khight20,
+        Row(
+          children: [
+            const SizedBox(
+              width: 50,
+              height: 500,
+              child: Column(
+                children: [
+                  Text(
+                    "FEB",
+                    style: TextStyle(
+                      color: grey,
+                    ),
+                  ),
+                  Text(
+                    "11",
+                    style: TextStyle(
+                      fontSize: 22,
+                      fontWeight: FontWeight.bold,
+                      letterSpacing: 4,
+                    ),
+                  )
+                ],
+              ),
+            ),
+            Container(
+              height: 500,
+              width: size.width - 60,
+              color: blue,
+            ),
+            
+          ],
+        )
+      ],
     );
   }
+}
+
+//every ones watching screen
+Widget _bottomeveryonewatching() {
+  return ListView();
 }
