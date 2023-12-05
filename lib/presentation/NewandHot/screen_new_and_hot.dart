@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:netflix/core/colors/colors.dart';
 import 'package:netflix/core/constants/const.dart';
+import 'package:netflix/presentation/home/widgets/bottomicon.dart';
 
 class ScreenNewandHot extends StatelessWidget {
   const ScreenNewandHot({super.key});
@@ -37,6 +38,7 @@ class ScreenNewandHot extends StatelessWidget {
               kwidth,
             ],
             bottom: TabBar(
+              tabAlignment: TabAlignment.center,
               padding: const EdgeInsets.only(top: 20),
               dividerColor: transparent,
               indicatorSize: TabBarIndicatorSize.tab,
@@ -106,37 +108,66 @@ class ScreenNewandHot extends StatelessWidget {
             SizedBox(
               height: 500,
               width: size.width - 60,
-              child: Stack(
+              child: Column(
                 children: [
-                  SizedBox(
-                    height: 220,
-                    width: double.infinity,
-                    child: Image.network(
-                      newandkottempimg,
-                      fit: BoxFit.fitHeight,
-                    ),
-                  ),
-                  Positioned(
-                    
-                    bottom: 280,
-                    right: 5,
-                    child: CircleAvatar(
-                      backgroundColor: transparent.withOpacity(0.2),
-                      radius: 20,
-                      child: IconButton(
-                        onPressed: () {},
-                        icon: const Icon(
-                          Icons.volume_off_outlined,
-                          color: white,
+                  Stack(
+                    children: [
+                      SizedBox(
+                        height: 220,
+                        width: double.infinity,
+                        child: Image.network(
+                          newandkottempimg,
+                          fit: BoxFit.fitHeight,
                         ),
                       ),
-                    ),
+                      Positioned(
+                        bottom: 280,
+                        right: 5,
+                        child: CircleAvatar(
+                          backgroundColor: transparent.withOpacity(0.2),
+                          radius: 20,
+                          child: IconButton(
+                            onPressed: () {},
+                            icon: const Icon(
+                              Icons.volume_off_outlined,
+                              color: white,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  khight20,
+                  const Row(
+                    children: [
+                      Text(
+                        "MASTER",
+                        style: TextStyle(
+                          fontSize: 32,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Spacer(),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          BottomIconHome(
+                            icon: Icons.notifications_outlined,
+                            text: "Remind Me",
+                          ),
+                          BottomIconHome(
+                            icon: Icons.info_outline,
+                            text: "Info",
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
                 ],
               ),
             ),
           ],
-        )
+        ),
       ],
     );
   }
