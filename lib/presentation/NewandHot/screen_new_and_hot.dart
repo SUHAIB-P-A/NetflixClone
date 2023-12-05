@@ -109,6 +109,7 @@ class ScreenNewandHot extends StatelessWidget {
               height: 500,
               width: size.width - 60,
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Stack(
                     children: [
@@ -168,6 +169,25 @@ class ScreenNewandHot extends StatelessWidget {
                       ),
                     ],
                   ),
+                  khight,
+                  const Text("comming On Friday"),
+                  khight,
+                  const Text(
+                    "MASTER",
+                    style: TextStyle(
+                      fontSize: 18,
+                    ),
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.only(right: 8, top: 8),
+                    child: Text(
+                      "Master is an action film from India about a professor, JD, who is sent to teach at a juvenile reform school for three months. He clashes with an unscrupulous man, Bhavani, who controls the school's young inmates to cover up his own criminal activities.",
+                      style: TextStyle(
+                        wordSpacing: -1,
+                      ),
+                      textAlign: TextAlign.justify,
+                    ),
+                  )
                 ],
               ),
             ),
