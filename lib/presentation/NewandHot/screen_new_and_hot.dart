@@ -149,16 +149,21 @@ class ScreenNewandHot extends StatelessWidget {
                       ),
                       Spacer(),
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           BottomIconHome(
                             icon: Icons.notifications_outlined,
                             text: "Remind Me",
+                            iconsize: 30,
+                            textsize: 8,
                           ),
+                          kwidth20,
                           BottomIconHome(
                             icon: Icons.info_outline,
                             text: "Info",
+                            iconsize: 30,
+                            textsize: 8,
                           ),
+                          kwidth,
                         ],
                       ),
                     ],
