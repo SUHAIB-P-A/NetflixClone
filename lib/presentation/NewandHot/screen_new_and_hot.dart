@@ -77,11 +77,13 @@ class ScreenNewandHot extends StatelessWidget {
 
 //comming soon screen
   Widget _bottomcommonsoon() {
-    return ListView(
-      children: const [
-        khight20,
-        CommigSoonWidget(),
-      ],
+    return ListView.builder(
+      itemCount: 10,
+      itemBuilder: (
+        BuildContext context,
+        index,
+      ) =>
+          const CommigSoonWidget(),
     );
   }
 }

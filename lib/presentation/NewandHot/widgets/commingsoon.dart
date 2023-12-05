@@ -15,7 +15,7 @@ class CommigSoonWidget extends StatelessWidget {
       children: [
         const SizedBox(
           width: 50,
-          height: 500,
+          height: 550,
           child: Column(
             children: [
               Text(
@@ -36,7 +36,7 @@ class CommigSoonWidget extends StatelessWidget {
           ),
         ),
         SizedBox(
-          height: 500,
+          height: 550,
           width: size.width - 60,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -112,10 +112,7 @@ class CommigSoonWidget extends StatelessWidget {
                 padding: EdgeInsets.only(right: 8, top: 8),
                 child: Text(
                   "Master is an action film from India about a professor, JD, who is sent to teach at a juvenile reform school for three months. He clashes with an unscrupulous man, Bhavani, who controls the school's young inmates to cover up his own criminal activities.",
-                  style: TextStyle(
-                    wordSpacing: -1,
-                    color: grey
-                  ),
+                  style: TextStyle(wordSpacing: -1, color: grey),
                   textAlign: TextAlign.justify,
                 ),
               )
