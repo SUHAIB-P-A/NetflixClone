@@ -29,7 +29,7 @@ class EvereonceWatching extends StatelessWidget {
               iconsize: 35,
               textsize: 14,
             ),
-            kwidth,
+            kwidth20,
             BottomIconHome(
               icon: Icons.add,
               text: "My List",
