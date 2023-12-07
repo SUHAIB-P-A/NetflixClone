@@ -16,12 +16,12 @@ class ImageWedget extends StatelessWidget {
           width: double.infinity,
           child: Image.network(
             newandkottempimg,
-            fit: BoxFit.fitHeight,
+            fit: BoxFit.cover,
           ),
         ),
         Positioned(
-          bottom: 280,
-          right: 5,
+          bottom: 0,
+          right: 0,
           child: CircleAvatar(
             backgroundColor: transparent.withOpacity(0.2),
             radius: 20,

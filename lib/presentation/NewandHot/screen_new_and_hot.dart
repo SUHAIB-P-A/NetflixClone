@@ -4,6 +4,7 @@ import 'package:netflix/core/colors/colors.dart';
 import 'package:netflix/core/constants/const.dart';
 import 'package:netflix/presentation/NewandHot/widgets/commingsoon.dart';
 import 'package:netflix/presentation/NewandHot/widgets/text_widgets.dart';
+import 'package:netflix/presentation/Widgets/iamge_widget.dart';
 
 class ScreenNewandHot extends StatelessWidget {
   const ScreenNewandHot({super.key});
@@ -97,7 +98,7 @@ Widget _bottomeveryonewatching() {
   return ListView(
     children: [
       TextHotandNew(),
-      image
+      ImageWedget(),
     ],
   );
 }
