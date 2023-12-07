@@ -83,7 +83,10 @@ class ScreenNewandHot extends StatelessWidget {
         BuildContext context,
         index,
       ) =>
-          const CommigSoonWidget(),
+          const Padding(
+            padding:  EdgeInsets.only(top: 10.0),
+            child:  CommigSoonWidget(),
+          ),
     );
   }
 }
