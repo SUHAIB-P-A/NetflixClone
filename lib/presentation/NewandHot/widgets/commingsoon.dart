@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:netflix/core/colors/colors.dart';
 import 'package:netflix/core/constants/const.dart';
+import 'package:netflix/presentation/NewandHot/widgets/text_widgets.dart';
+import 'package:netflix/presentation/Widgets/iamge_widget.dart';
 import 'package:netflix/presentation/home/widgets/bottomicon.dart';
 
 class CommigSoonWidget extends StatelessWidget {
@@ -38,38 +40,12 @@ class CommigSoonWidget extends StatelessWidget {
         SizedBox(
           height: 550,
           width: size.width - 60,
-          child: Column(
+          child: const Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Stack(
-                children: [
-                  SizedBox(
-                    height: 220,
-                    width: double.infinity,
-                    child: Image.network(
-                      newandkottempimg,
-                      fit: BoxFit.fitHeight,
-                    ),
-                  ),
-                  Positioned(
-                    bottom: 280,
-                    right: 5,
-                    child: CircleAvatar(
-                      backgroundColor: transparent.withOpacity(0.2),
-                      radius: 20,
-                      child: IconButton(
-                        onPressed: () {},
-                        icon: const Icon(
-                          Icons.volume_off_outlined,
-                          color: white,
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+              ImageWedget(),
               khight20,
-              const Row(
+              Row(
                 children: [
                   Text(
                     "MASTER",
@@ -100,22 +76,9 @@ class CommigSoonWidget extends StatelessWidget {
                 ],
               ),
               khight,
-              const Text("comming On Friday"),
+              Text("comming On Friday"),
               khight,
-              const Text(
-                "MASTER",
-                style: TextStyle(
-                  fontSize: 18,
-                ),
-              ),
-              const Padding(
-                padding: EdgeInsets.only(right: 8, top: 8),
-                child: Text(
-                  "Master is an action film from India about a professor, JD, who is sent to teach at a juvenile reform school for three months. He clashes with an unscrupulous man, Bhavani, who controls the school's young inmates to cover up his own criminal activities.",
-                  style: TextStyle(wordSpacing: -1, color: grey),
-                  textAlign: TextAlign.justify,
-                ),
-              )
+              TextHotandNew(),
             ],
           ),
         ),
@@ -123,3 +86,4 @@ class CommigSoonWidget extends StatelessWidget {
     );
   }
 }
+

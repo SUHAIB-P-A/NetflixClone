@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:netflix/core/colors/colors.dart';
 import 'package:netflix/core/constants/const.dart';
 import 'package:netflix/presentation/NewandHot/widgets/commingsoon.dart';
+import 'package:netflix/presentation/NewandHot/widgets/text_widgets.dart';
 
 class ScreenNewandHot extends StatelessWidget {
   const ScreenNewandHot({super.key});
@@ -93,5 +94,10 @@ class ScreenNewandHot extends StatelessWidget {
 
 //every ones watching screen
 Widget _bottomeveryonewatching() {
-  return ListView();
+  return ListView(
+    children: [
+      TextHotandNew(),
+      image
+    ],
+  );
 }
