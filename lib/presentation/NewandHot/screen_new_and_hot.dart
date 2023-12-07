@@ -3,9 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:netflix/core/colors/colors.dart';
 import 'package:netflix/core/constants/const.dart';
 import 'package:netflix/presentation/NewandHot/widgets/commingsoon.dart';
-import 'package:netflix/presentation/NewandHot/widgets/text_widgets.dart';
-import 'package:netflix/presentation/Widgets/iamge_widget.dart';
-import 'package:netflix/presentation/home/widgets/bottomicon.dart';
+import 'package:netflix/presentation/NewandHot/widgets/everyonce_watching.dart';
 
 class ScreenNewandHot extends StatelessWidget {
   const ScreenNewandHot({super.key});
@@ -96,37 +94,19 @@ class ScreenNewandHot extends StatelessWidget {
 
 //every ones watching screen
 Widget _bottomeveryonewatching() {
-  return ListView(
-    children: const [
-      TextHotandNew(),
-      ImageWedget(),
-      khight,
-      Row(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          BottomIconHome(
-            icon: Icons.send_outlined,
-            text: "Share",
-            iconsize: 30,
-            textsize: 8,
-          ),
-          kwidth,
-          BottomIconHome(
-            icon: Icons.add,
-            text: "My List",
-            iconsize: 30,
-            textsize: 8,
-          ),
-          kwidth,
-          BottomIconHome(
-            icon: Icons.play_arrow_rounded,
-            text: "Play",
-            iconsize: 30,
-            textsize: 8,
-          ),
-          kwidth20,
-        ],
+  return ListView.builder(
+    itemCount: 10,
+    itemBuilder: (
+      BuildContext context,
+      intex,
+    ) =>
+        const Padding(
+      padding: EdgeInsets.only(
+        top: 10,
+        left: 10,
+        right: 10,
       ),
-    ],
+      child: EvereonceWatching(),
+    ),
   );
 }
