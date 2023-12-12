@@ -18,33 +18,33 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$DownlodesEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
+    required TResult Function() getdownloadsimages,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
+    TResult? Function()? getdownloadsimages,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
+    TResult Function()? getdownloadsimages,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
+    required TResult Function(_Getdownloadsimages value) getdownloadsimages,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
+    TResult? Function(_Getdownloadsimages value)? getdownloadsimages,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult Function(_Getdownloadsimages value)? getdownloadsimages,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -69,35 +69,35 @@ class _$DownlodesEventCopyWithImpl<$Res, $Val extends DownlodesEvent>
 }
 
 /// @nodoc
-abstract class _$$StartedImplCopyWith<$Res> {
-  factory _$$StartedImplCopyWith(
-          _$StartedImpl value, $Res Function(_$StartedImpl) then) =
-      __$$StartedImplCopyWithImpl<$Res>;
+abstract class _$$GetdownloadsimagesImplCopyWith<$Res> {
+  factory _$$GetdownloadsimagesImplCopyWith(_$GetdownloadsimagesImpl value,
+          $Res Function(_$GetdownloadsimagesImpl) then) =
+      __$$GetdownloadsimagesImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$StartedImplCopyWithImpl<$Res>
-    extends _$DownlodesEventCopyWithImpl<$Res, _$StartedImpl>
-    implements _$$StartedImplCopyWith<$Res> {
-  __$$StartedImplCopyWithImpl(
-      _$StartedImpl _value, $Res Function(_$StartedImpl) _then)
+class __$$GetdownloadsimagesImplCopyWithImpl<$Res>
+    extends _$DownlodesEventCopyWithImpl<$Res, _$GetdownloadsimagesImpl>
+    implements _$$GetdownloadsimagesImplCopyWith<$Res> {
+  __$$GetdownloadsimagesImplCopyWithImpl(_$GetdownloadsimagesImpl _value,
+      $Res Function(_$GetdownloadsimagesImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$StartedImpl implements _Started {
-  const _$StartedImpl();
+class _$GetdownloadsimagesImpl implements _Getdownloadsimages {
+  const _$GetdownloadsimagesImpl();
 
   @override
   String toString() {
-    return 'DownlodesEvent.started()';
+    return 'DownlodesEvent.getdownloadsimages()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$StartedImpl);
+        (other.runtimeType == runtimeType && other is _$GetdownloadsimagesImpl);
   }
 
   @override
@@ -106,27 +106,27 @@ class _$StartedImpl implements _Started {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
+    required TResult Function() getdownloadsimages,
   }) {
-    return started();
+    return getdownloadsimages();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
+    TResult? Function()? getdownloadsimages,
   }) {
-    return started?.call();
+    return getdownloadsimages?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
+    TResult Function()? getdownloadsimages,
     required TResult orElse(),
   }) {
-    if (started != null) {
-      return started();
+    if (getdownloadsimages != null) {
+      return getdownloadsimages();
     }
     return orElse();
   }
@@ -134,34 +134,34 @@ class _$StartedImpl implements _Started {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
+    required TResult Function(_Getdownloadsimages value) getdownloadsimages,
   }) {
-    return started(this);
+    return getdownloadsimages(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
+    TResult? Function(_Getdownloadsimages value)? getdownloadsimages,
   }) {
-    return started?.call(this);
+    return getdownloadsimages?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult Function(_Getdownloadsimages value)? getdownloadsimages,
     required TResult orElse(),
   }) {
-    if (started != null) {
-      return started(this);
+    if (getdownloadsimages != null) {
+      return getdownloadsimages(this);
     }
     return orElse();
   }
 }
 
-abstract class _Started implements DownlodesEvent {
-  const factory _Started() = _$StartedImpl;
+abstract class _Getdownloadsimages implements DownlodesEvent {
+  const factory _Getdownloadsimages() = _$GetdownloadsimagesImpl;
 }
 
 /// @nodoc
