@@ -166,37 +166,11 @@ abstract class _Getdownloadsimages implements DownlodesEvent {
 
 /// @nodoc
 mixin _$DownlodesState {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    required TResult orElse(),
-  }) =>
+  bool get isLoading => throw _privateConstructorUsedError;
+  List<Downloads>? get downloads => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $DownlodesStateCopyWith<DownlodesState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -205,6 +179,8 @@ abstract class $DownlodesStateCopyWith<$Res> {
   factory $DownlodesStateCopyWith(
           DownlodesState value, $Res Function(DownlodesState) then) =
       _$DownlodesStateCopyWithImpl<$Res, DownlodesState>;
+  @useResult
+  $Res call({bool isLoading, List<Downloads>? downloads});
 }
 
 /// @nodoc
@@ -216,100 +192,122 @@ class _$DownlodesStateCopyWithImpl<$Res, $Val extends DownlodesState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? isLoading = null,
+    Object? downloads = freezed,
+  }) {
+    return _then(_value.copyWith(
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      downloads: freezed == downloads
+          ? _value.downloads
+          : downloads // ignore: cast_nullable_to_non_nullable
+              as List<Downloads>?,
+    ) as $Val);
+  }
 }
 
 /// @nodoc
-abstract class _$$InitialImplCopyWith<$Res> {
-  factory _$$InitialImplCopyWith(
-          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
-      __$$InitialImplCopyWithImpl<$Res>;
+abstract class _$$DownlodesStateImplCopyWith<$Res>
+    implements $DownlodesStateCopyWith<$Res> {
+  factory _$$DownlodesStateImplCopyWith(_$DownlodesStateImpl value,
+          $Res Function(_$DownlodesStateImpl) then) =
+      __$$DownlodesStateImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({bool isLoading, List<Downloads>? downloads});
 }
 
 /// @nodoc
-class __$$InitialImplCopyWithImpl<$Res>
-    extends _$DownlodesStateCopyWithImpl<$Res, _$InitialImpl>
-    implements _$$InitialImplCopyWith<$Res> {
-  __$$InitialImplCopyWithImpl(
-      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
+class __$$DownlodesStateImplCopyWithImpl<$Res>
+    extends _$DownlodesStateCopyWithImpl<$Res, _$DownlodesStateImpl>
+    implements _$$DownlodesStateImplCopyWith<$Res> {
+  __$$DownlodesStateImplCopyWithImpl(
+      _$DownlodesStateImpl _value, $Res Function(_$DownlodesStateImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? isLoading = null,
+    Object? downloads = freezed,
+  }) {
+    return _then(_$DownlodesStateImpl(
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      downloads: freezed == downloads
+          ? _value._downloads
+          : downloads // ignore: cast_nullable_to_non_nullable
+              as List<Downloads>?,
+    ));
+  }
 }
 
 /// @nodoc
 
-class _$InitialImpl implements _Initial {
-  const _$InitialImpl();
+class _$DownlodesStateImpl implements _DownlodesState {
+  const _$DownlodesStateImpl(
+      {required this.isLoading, final List<Downloads>? downloads})
+      : _downloads = downloads;
+
+  @override
+  final bool isLoading;
+  final List<Downloads>? _downloads;
+  @override
+  List<Downloads>? get downloads {
+    final value = _downloads;
+    if (value == null) return null;
+    if (_downloads is EqualUnmodifiableListView) return _downloads;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
 
   @override
   String toString() {
-    return 'DownlodesState.initial()';
+    return 'DownlodesState(isLoading: $isLoading, downloads: $downloads)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$InitialImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$DownlodesStateImpl &&
+            (identical(other.isLoading, isLoading) ||
+                other.isLoading == isLoading) &&
+            const DeepCollectionEquality()
+                .equals(other._downloads, _downloads));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(
+      runtimeType, isLoading, const DeepCollectionEquality().hash(_downloads));
 
+  @JsonKey(ignore: true)
   @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-  }) {
-    return initial();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-  }) {
-    return initial?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-  }) {
-    return initial(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-  }) {
-    return initial?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial(this);
-    }
-    return orElse();
-  }
+  @pragma('vm:prefer-inline')
+  _$$DownlodesStateImplCopyWith<_$DownlodesStateImpl> get copyWith =>
+      __$$DownlodesStateImplCopyWithImpl<_$DownlodesStateImpl>(
+          this, _$identity);
 }
 
-abstract class _Initial implements DownlodesState {
-  const factory _Initial() = _$InitialImpl;
+abstract class _DownlodesState implements DownlodesState {
+  const factory _DownlodesState(
+      {required final bool isLoading,
+      final List<Downloads>? downloads}) = _$DownlodesStateImpl;
+
+  @override
+  bool get isLoading;
+  @override
+  List<Downloads>? get downloads;
+  @override
+  @JsonKey(ignore: true)
+  _$$DownlodesStateImplCopyWith<_$DownlodesStateImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
