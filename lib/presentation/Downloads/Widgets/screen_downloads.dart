@@ -1,7 +1,8 @@
 import 'dart:math';
-
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:netflix/application/downloads/downlodes_bloc.dart';
 import 'package:netflix/core/colors/colors.dart';
 import 'package:netflix/core/constants/const.dart';
 import 'package:netflix/presentation/Widgets/app_bar_widget.dart';
@@ -101,7 +102,11 @@ class Session2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      BlocProvider.of<DownlodesBloc>(context).add(const DownlodesEvent.getdownloadsimages());
+    });
     final Size size = MediaQuery.of(context).size;
+    
     return Column(
       children: [
         // text
