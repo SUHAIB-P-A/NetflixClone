@@ -176,7 +176,7 @@ abstract class _Getdownloadsimages implements DownlodesEvent {
 /// @nodoc
 mixin _$DownlodesState {
   bool get isLoading => throw _privateConstructorUsedError;
-  List<Downloads>? get downloads => throw _privateConstructorUsedError;
+  List<Downloads> get downloads => throw _privateConstructorUsedError;
   Option<Either<MainFailures, List<Downloads>>>
       get downlodfailureorsuccessoption => throw _privateConstructorUsedError;
 
@@ -193,7 +193,7 @@ abstract class $DownlodesStateCopyWith<$Res> {
   @useResult
   $Res call(
       {bool isLoading,
-      List<Downloads>? downloads,
+      List<Downloads> downloads,
       Option<Either<MainFailures, List<Downloads>>>
           downlodfailureorsuccessoption});
 }
@@ -212,7 +212,7 @@ class _$DownlodesStateCopyWithImpl<$Res, $Val extends DownlodesState>
   @override
   $Res call({
     Object? isLoading = null,
-    Object? downloads = freezed,
+    Object? downloads = null,
     Object? downlodfailureorsuccessoption = null,
   }) {
     return _then(_value.copyWith(
@@ -220,10 +220,10 @@ class _$DownlodesStateCopyWithImpl<$Res, $Val extends DownlodesState>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      downloads: freezed == downloads
+      downloads: null == downloads
           ? _value.downloads
           : downloads // ignore: cast_nullable_to_non_nullable
-              as List<Downloads>?,
+              as List<Downloads>,
       downlodfailureorsuccessoption: null == downlodfailureorsuccessoption
           ? _value.downlodfailureorsuccessoption
           : downlodfailureorsuccessoption // ignore: cast_nullable_to_non_nullable
@@ -242,7 +242,7 @@ abstract class _$$DownlodesStateImplCopyWith<$Res>
   @useResult
   $Res call(
       {bool isLoading,
-      List<Downloads>? downloads,
+      List<Downloads> downloads,
       Option<Either<MainFailures, List<Downloads>>>
           downlodfailureorsuccessoption});
 }
@@ -259,7 +259,7 @@ class __$$DownlodesStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isLoading = null,
-    Object? downloads = freezed,
+    Object? downloads = null,
     Object? downlodfailureorsuccessoption = null,
   }) {
     return _then(_$DownlodesStateImpl(
@@ -267,10 +267,10 @@ class __$$DownlodesStateImplCopyWithImpl<$Res>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      downloads: freezed == downloads
+      downloads: null == downloads
           ? _value._downloads
           : downloads // ignore: cast_nullable_to_non_nullable
-              as List<Downloads>?,
+              as List<Downloads>,
       downlodfailureorsuccessoption: null == downlodfailureorsuccessoption
           ? _value.downlodfailureorsuccessoption
           : downlodfailureorsuccessoption // ignore: cast_nullable_to_non_nullable
@@ -286,20 +286,18 @@ class _$DownlodesStateImpl
     implements _DownlodesState {
   const _$DownlodesStateImpl(
       {required this.isLoading,
-      final List<Downloads>? downloads,
+      required final List<Downloads> downloads,
       required this.downlodfailureorsuccessoption})
       : _downloads = downloads;
 
   @override
   final bool isLoading;
-  final List<Downloads>? _downloads;
+  final List<Downloads> _downloads;
   @override
-  List<Downloads>? get downloads {
-    final value = _downloads;
-    if (value == null) return null;
+  List<Downloads> get downloads {
     if (_downloads is EqualUnmodifiableListView) return _downloads;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
+    return EqualUnmodifiableListView(_downloads);
   }
 
   @override
@@ -355,14 +353,14 @@ class _$DownlodesStateImpl
 abstract class _DownlodesState implements DownlodesState {
   const factory _DownlodesState(
       {required final bool isLoading,
-      final List<Downloads>? downloads,
+      required final List<Downloads> downloads,
       required final Option<Either<MainFailures, List<Downloads>>>
           downlodfailureorsuccessoption}) = _$DownlodesStateImpl;
 
   @override
   bool get isLoading;
   @override
-  List<Downloads>? get downloads;
+  List<Downloads> get downloads;
   @override
   Option<Either<MainFailures, List<Downloads>>>
       get downlodfailureorsuccessoption;

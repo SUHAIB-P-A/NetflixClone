@@ -4,7 +4,7 @@ part of 'downlodes_bloc.dart';
 class DownlodesState with _$DownlodesState {
   const factory DownlodesState({
     required bool isLoading,
-    List<Downloads>? downloads,
+    required List<Downloads> downloads,
     required Option<Either<MainFailures, List<Downloads>>>
         downlodfailureorsuccessoption,
   }) = _DownlodesState;
@@ -13,6 +13,7 @@ class DownlodesState with _$DownlodesState {
     return DownlodesState(
       isLoading: false,
       downlodfailureorsuccessoption: none(),
+      downloads: [],
     );
   }
 }

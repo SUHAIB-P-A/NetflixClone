@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:netflix/application/downloads/downlodes_bloc.dart';
 import 'package:netflix/core/colors/colors.dart';
 import 'package:netflix/core/constants/const.dart';
+import 'package:netflix/core/constants/strings.dart';
 import 'package:netflix/presentation/Widgets/app_bar_widget.dart';
 
 class ScreenDownload extends StatelessWidget {
@@ -27,7 +28,9 @@ class ScreenDownload extends StatelessWidget {
       ),
       body: ListView.separated(
         itemBuilder: (context, index) => sessions[index],
-        separatorBuilder: (context, index) => const SizedBox(height: 20,),
+        separatorBuilder: (context, index) => const SizedBox(
+          height: 20,
+        ),
         itemCount: sessions.length,
         padding: const EdgeInsets.all(10),
       ),
@@ -93,20 +96,15 @@ class Session3 extends StatelessWidget {
 //images and texts
 class Session2 extends StatelessWidget {
   Session2({super.key});
-  final List movielist = [
-    'https://m.media-amazon.com/images/M/MV5BMDk0ZmVmMTktOGNiNS00Yzg5LWIzZTAtNjUxZWZhZDljY2Y0XkEyXkFqcGdeQXVyMTY1MzAyNjU4._V1_.jpg',
-    'https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_FMjpg_UY720_.jpg',
-    'https://m.media-amazon.com/images/M/MV5BNTMxZTQ1ZmEtOWM3Ny00MGQzLTgyMjgtZGMzNDM0YjVhZjMzXkEyXkFqcGdeQXVyMjkxNzQ1NDI@._V1_FMjpg_UY467_.jpg',
-    'https://www.themoviedb.org/t/p/w300_and_h450_bestv2/hTP1DtLGFamjfu8WqjnuQdP1n4i.jpg'
-  ];
 
   @override
   Widget build(BuildContext context) {
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      BlocProvider.of<DownlodesBloc>(context).add(const DownlodesEvent.getdownloadsimages());
+      BlocProvider.of<DownlodesBloc>(context)
+          .add(const DownlodesEvent.getdownloadsimages());
     });
     final Size size = MediaQuery.of(context).size;
-    
+
     return Column(
       children: [
         // text
@@ -131,40 +129,50 @@ class Session2 extends StatelessWidget {
           ),
         ),
         // rotated image container
-        SizedBox(
-          height: size.width,
-          width: size.width,
-          //color: white,
-          child: Stack(
-            // alignment: Alignment.center,
-            children: [
-              Center(
-                child: CircleAvatar(
-                  radius: size.width * 0.39,
-                  backgroundColor: downloadcirculargrey.withOpacity(0.4),
-                ),
-              ),
-              //img 1
-              Downloadsimagewidget(
-                movielist: movielist[2],
-                margin: const EdgeInsets.only(left: 160),
-                angle: 15,
-              ),
-              //img2
-              Downloadsimagewidget(
-                movielist: movielist[1],
-                margin: const EdgeInsets.only(
-                  right: 160,
-                ),
-                angle: -15,
-              ),
-              //img3
-              Downloadsimagewidget(
-                movielist: movielist[0],
-                margin: const EdgeInsets.only(left: 0, top: 13),
-              ),
-            ],
-          ),
+        BlocBuilder<DownlodesBloc, DownlodesState>(
+          builder: (context, state) {
+            return SizedBox(
+              height: size.width,
+              width: size.width,
+              //color: white,
+              child: state.isLoading
+                  ? const Center(child: CircularProgressIndicator.adaptive())
+                  : Stack(
+                      // alignment: Alignment.center,
+                      children: [
+                        Center(
+                          child: CircleAvatar(
+                            radius: size.width * 0.39,
+                            backgroundColor:
+                                downloadcirculargrey.withOpacity(0.4),
+                          ),
+                        ),
+                        //img 1
+                        Downloadsimagewidget(
+                          movielist:
+                              '$kimageurl${state.downloads[2].posterPath}',
+                          margin: const EdgeInsets.only(left: 160),
+                          angle: 15,
+                        ),
+                        //img2
+                        Downloadsimagewidget(
+                          movielist:
+                              '$kimageurl${state.downloads[1].posterPath}',
+                          margin: const EdgeInsets.only(
+                            right: 160,
+                          ),
+                          angle: -15,
+                        ),
+                        //img3
+                        Downloadsimagewidget(
+                          movielist:
+                              '$kimageurl${state.downloads[0].posterPath}',
+                          margin: const EdgeInsets.only(left: 0, top: 13),
+                        ),
+                      ],
+                    ),
+            );
+          },
         ),
       ],
     );
