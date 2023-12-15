@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:netflix/core/colors/colors.dart';
+import 'package:netflix/domain/core/di/injuctable.dart';
 import 'package:netflix/presentation/main_page/Widgets/main_page.dart';
 
-void main() {
+
+Future<void> main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await configinjuction();
   runApp(const MyApp());
 }
 
