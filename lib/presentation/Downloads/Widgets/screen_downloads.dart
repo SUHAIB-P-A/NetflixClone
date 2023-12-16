@@ -27,6 +27,7 @@ class ScreenDownload extends StatelessWidget {
         ),
       ),
       body: ListView.separated(
+        shrinkWrap: true,
         itemBuilder: (context, index) => sessions[index],
         separatorBuilder: (context, index) => const SizedBox(
           height: 20,
@@ -131,46 +132,55 @@ class Session2 extends StatelessWidget {
         // rotated image container
         BlocBuilder<DownlodesBloc, DownlodesState>(
           builder: (context, state) {
+            // if (state.isLoading) {
+            //   return const Center(child: CircularProgressIndicator.adaptive());
+            // } else if (state.downloads.isEmpty) {
+            //   // Handle empty state with a message or indicator
+            //   return const Center(child: CircularProgressIndicator.adaptive());
+            // }
             return SizedBox(
               height: size.width,
               width: size.width,
               //color: white,
               child: state.isLoading
                   ? const Center(child: CircularProgressIndicator.adaptive())
-                  : Stack(
-                      // alignment: Alignment.center,
-                      children: [
-                        Center(
-                          child: CircleAvatar(
-                            radius: size.width * 0.39,
-                            backgroundColor:
-                                downloadcirculargrey.withOpacity(0.4),
-                          ),
+                  : state.downloads.isEmpty
+                      ? const Center(
+                          child: CircularProgressIndicator.adaptive())
+                      : Stack(
+                          // alignment: Alignment.center,
+                          children: [
+                            Center(
+                              child: CircleAvatar(
+                                radius: size.width * 0.39,
+                                backgroundColor:
+                                    downloadcirculargrey.withOpacity(0.4),
+                              ),
+                            ),
+                            //img 1
+                            Downloadsimagewidget(
+                              movielist:
+                                  '$kimageurl${state.downloads[2].posterPath}',
+                              margin: const EdgeInsets.only(left: 160),
+                              angle: 15,
+                            ),
+                            //img2
+                            Downloadsimagewidget(
+                              movielist:
+                                  '$kimageurl${state.downloads[1].posterPath}',
+                              margin: const EdgeInsets.only(
+                                right: 160,
+                              ),
+                              angle: -15,
+                            ),
+                            //img3
+                            Downloadsimagewidget(
+                              movielist:
+                                  '$kimageurl${state.downloads[0].posterPath}',
+                              margin: const EdgeInsets.only(left: 0, top: 13),
+                            ),
+                          ],
                         ),
-                        //img 1
-                        Downloadsimagewidget(
-                          movielist:
-                              '$kimageurl${state.downloads[2].posterPath}',
-                          margin: const EdgeInsets.only(left: 160),
-                          angle: 15,
-                        ),
-                        //img2
-                        Downloadsimagewidget(
-                          movielist:
-                              '$kimageurl${state.downloads[1].posterPath}',
-                          margin: const EdgeInsets.only(
-                            right: 160,
-                          ),
-                          angle: -15,
-                        ),
-                        //img3
-                        Downloadsimagewidget(
-                          movielist:
-                              '$kimageurl${state.downloads[0].posterPath}',
-                          margin: const EdgeInsets.only(left: 0, top: 13),
-                        ),
-                      ],
-                    ),
             );
           },
         ),

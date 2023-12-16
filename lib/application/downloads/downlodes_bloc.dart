@@ -24,7 +24,7 @@ class DownlodesBloc extends Bloc<DownlodesEvent, DownlodesState> {
       ));
       final Either<MainFailures, List<Downloads>> downlaodOption =
           await downloadsrepo.getdownloadsimages();
-      print(downlaodOption.toString());
+     // print(downlaodOption.toString());
       emit(
         downlaodOption.fold(
           (failure) => state.copyWith(
