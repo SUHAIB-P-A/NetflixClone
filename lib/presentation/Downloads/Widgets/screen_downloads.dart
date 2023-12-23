@@ -167,7 +167,7 @@ class Session2 extends StatelessWidget {
                             //img2
                             Downloadsimagewidget(
                               movielist:
-                                  '$kimageurl${state.downloads[0].posterPath}',
+                                  '$kimageurl${state.downloads[1].posterPath}',
                               margin: const EdgeInsets.only(
                                 right: 160,
                               ),
@@ -176,7 +176,7 @@ class Session2 extends StatelessWidget {
                             //img3
                             Downloadsimagewidget(
                               movielist:
-                                  '$kimageurl${state.downloads[1].posterPath}',
+                                  '$kimageurl${state.downloads[0].posterPath}',
                               margin: const EdgeInsets.only(left: 0, top: 13),
                             ),
                           ],
