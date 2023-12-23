@@ -58,9 +58,7 @@ class ScreenHome extends StatelessWidget {
                     MainTitleCard(title: "South Indian Cinima")
                   ],
                 ),
-                scrollnotifier.value == true
-                    ? const HideingBar()
-                    : khight
+                scrollnotifier.value == true ? const HideingBar() : khight
               ],
             ),
           );
@@ -69,4 +67,3 @@ class ScreenHome extends StatelessWidget {
     );
   }
 }
-

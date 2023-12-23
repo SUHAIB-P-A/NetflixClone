@@ -8,8 +8,8 @@ import 'package:netflix/presentation/home/screen_home.dart';
 import 'package:netflix/presentation/main_page/Widgets/bottam_nav.dart';
 
 class ScreenMainPage extends StatelessWidget {
-   ScreenMainPage({super.key});
-  final _pages =  [
+  ScreenMainPage({super.key});
+  final _pages = [
     ScreenHome(),
     ScreenNewandHot(),
     ScreenFastLaugh(),

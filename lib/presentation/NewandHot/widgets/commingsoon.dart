@@ -86,4 +86,3 @@ class CommigSoonWidget extends StatelessWidget {
     );
   }
 }
-

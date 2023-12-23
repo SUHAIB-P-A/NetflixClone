@@ -25,7 +25,7 @@ class BottomIconHome extends StatelessWidget {
         ),
         Text(
           text,
-          style:  TextStyle(
+          style: TextStyle(
             fontSize: textsize,
           ),
         ),

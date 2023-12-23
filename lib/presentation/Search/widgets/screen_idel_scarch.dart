@@ -45,7 +45,7 @@ class SearchIdelItem extends StatelessWidget {
         Container(
           width: screenwidth * 0.37,
           height: 65,
-          decoration:  BoxDecoration(
+          decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
             image: const DecorationImage(
               fit: BoxFit.cover,

@@ -39,7 +39,8 @@ class VideoListItem extends StatelessWidget {
                       padding: EdgeInsets.symmetric(vertical: 10),
                       child: CircleAvatar(
                         radius: 30,
-                        backgroundImage: NetworkImage('https://himalayantribune.com/wp-content/uploads/2020/07/TIGER-1024x647.jpg'),
+                        backgroundImage: NetworkImage(
+                            'https://himalayantribune.com/wp-content/uploads/2020/07/TIGER-1024x647.jpg'),
                       ),
                     ),
                     VideoActions(

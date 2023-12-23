@@ -18,7 +18,7 @@ class Screenresult extends StatelessWidget {
             crossAxisCount: 3,
             mainAxisSpacing: 15,
             crossAxisSpacing: 15,
-            childAspectRatio: 1/1.7,
+            childAspectRatio: 1 / 1.7,
             children: List.generate(20, (index) {
               return const ResultItem();
             }),
@@ -35,7 +35,7 @@ class ResultItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration:  BoxDecoration(
+      decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         image: const DecorationImage(
           fit: BoxFit.cover,

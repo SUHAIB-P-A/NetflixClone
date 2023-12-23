@@ -18,7 +18,7 @@ class BottomNavWidget extends StatelessWidget {
         return BottomNavigationBar(
           currentIndex: newindex,
           onTap: (index) {
-            indexchangenotifier.value=index;
+            indexchangenotifier.value = index;
           },
           type: BottomNavigationBarType.fixed,
           backgroundColor: backgroundcolor,
