@@ -11,8 +11,10 @@ class Searchservices implements SearchServices {
     required String movieQuary,
   }) async {
     try {
-      final Response response =
-          await Dio(BaseOptions()).get(ApiEndPoints.endPointsSearch);
+      final Response response = await Dio(BaseOptions()).get(
+        ApiEndPoints.endPointsSearch,
+        queryParameters: {'query': movieQuary},
+      );
       //print(response.data.toString());
       if (response.statusCode == 200 || response.statusCode == 201) {
         final searchlist = ScaechRespo.fromJson(response.data);
