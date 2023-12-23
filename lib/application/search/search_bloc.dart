@@ -1,6 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
+import 'package:netflix/domain/Search/models/scaech_respo/result.dart';
+import 'package:netflix/domain/downloads/models/downloads.dart';
 
 part 'search_event.dart';
 part 'search_state.dart';

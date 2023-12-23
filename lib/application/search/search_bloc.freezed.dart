@@ -313,37 +313,13 @@ abstract class _SearchMovie implements SearchEvent {
 
 /// @nodoc
 mixin _$SearchState {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    required TResult orElse(),
-  }) =>
+  List<ScarchResultData> get searchlist => throw _privateConstructorUsedError;
+  List<Downloads> get idelsearchlist => throw _privateConstructorUsedError;
+  bool get isloading => throw _privateConstructorUsedError;
+  bool get isError => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $SearchStateCopyWith<SearchState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -352,6 +328,12 @@ abstract class $SearchStateCopyWith<$Res> {
   factory $SearchStateCopyWith(
           SearchState value, $Res Function(SearchState) then) =
       _$SearchStateCopyWithImpl<$Res, SearchState>;
+  @useResult
+  $Res call(
+      {List<ScarchResultData> searchlist,
+      List<Downloads> idelsearchlist,
+      bool isloading,
+      bool isError});
 }
 
 /// @nodoc
@@ -363,100 +345,171 @@ class _$SearchStateCopyWithImpl<$Res, $Val extends SearchState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? searchlist = null,
+    Object? idelsearchlist = null,
+    Object? isloading = null,
+    Object? isError = null,
+  }) {
+    return _then(_value.copyWith(
+      searchlist: null == searchlist
+          ? _value.searchlist
+          : searchlist // ignore: cast_nullable_to_non_nullable
+              as List<ScarchResultData>,
+      idelsearchlist: null == idelsearchlist
+          ? _value.idelsearchlist
+          : idelsearchlist // ignore: cast_nullable_to_non_nullable
+              as List<Downloads>,
+      isloading: null == isloading
+          ? _value.isloading
+          : isloading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isError: null == isError
+          ? _value.isError
+          : isError // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ) as $Val);
+  }
 }
 
 /// @nodoc
-abstract class _$$InitialImplCopyWith<$Res> {
-  factory _$$InitialImplCopyWith(
-          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
-      __$$InitialImplCopyWithImpl<$Res>;
+abstract class _$$SearchStateImplCopyWith<$Res>
+    implements $SearchStateCopyWith<$Res> {
+  factory _$$SearchStateImplCopyWith(
+          _$SearchStateImpl value, $Res Function(_$SearchStateImpl) then) =
+      __$$SearchStateImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {List<ScarchResultData> searchlist,
+      List<Downloads> idelsearchlist,
+      bool isloading,
+      bool isError});
 }
 
 /// @nodoc
-class __$$InitialImplCopyWithImpl<$Res>
-    extends _$SearchStateCopyWithImpl<$Res, _$InitialImpl>
-    implements _$$InitialImplCopyWith<$Res> {
-  __$$InitialImplCopyWithImpl(
-      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
+class __$$SearchStateImplCopyWithImpl<$Res>
+    extends _$SearchStateCopyWithImpl<$Res, _$SearchStateImpl>
+    implements _$$SearchStateImplCopyWith<$Res> {
+  __$$SearchStateImplCopyWithImpl(
+      _$SearchStateImpl _value, $Res Function(_$SearchStateImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? searchlist = null,
+    Object? idelsearchlist = null,
+    Object? isloading = null,
+    Object? isError = null,
+  }) {
+    return _then(_$SearchStateImpl(
+      searchlist: null == searchlist
+          ? _value._searchlist
+          : searchlist // ignore: cast_nullable_to_non_nullable
+              as List<ScarchResultData>,
+      idelsearchlist: null == idelsearchlist
+          ? _value._idelsearchlist
+          : idelsearchlist // ignore: cast_nullable_to_non_nullable
+              as List<Downloads>,
+      isloading: null == isloading
+          ? _value.isloading
+          : isloading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isError: null == isError
+          ? _value.isError
+          : isError // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
 }
 
 /// @nodoc
 
-class _$InitialImpl implements _Initial {
-  const _$InitialImpl();
+class _$SearchStateImpl implements _SearchState {
+  const _$SearchStateImpl(
+      {required final List<ScarchResultData> searchlist,
+      required final List<Downloads> idelsearchlist,
+      required this.isloading,
+      required this.isError})
+      : _searchlist = searchlist,
+        _idelsearchlist = idelsearchlist;
+
+  final List<ScarchResultData> _searchlist;
+  @override
+  List<ScarchResultData> get searchlist {
+    if (_searchlist is EqualUnmodifiableListView) return _searchlist;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_searchlist);
+  }
+
+  final List<Downloads> _idelsearchlist;
+  @override
+  List<Downloads> get idelsearchlist {
+    if (_idelsearchlist is EqualUnmodifiableListView) return _idelsearchlist;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_idelsearchlist);
+  }
+
+  @override
+  final bool isloading;
+  @override
+  final bool isError;
 
   @override
   String toString() {
-    return 'SearchState.initial()';
+    return 'SearchState(searchlist: $searchlist, idelsearchlist: $idelsearchlist, isloading: $isloading, isError: $isError)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$InitialImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$SearchStateImpl &&
+            const DeepCollectionEquality()
+                .equals(other._searchlist, _searchlist) &&
+            const DeepCollectionEquality()
+                .equals(other._idelsearchlist, _idelsearchlist) &&
+            (identical(other.isloading, isloading) ||
+                other.isloading == isloading) &&
+            (identical(other.isError, isError) || other.isError == isError));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_searchlist),
+      const DeepCollectionEquality().hash(_idelsearchlist),
+      isloading,
+      isError);
 
+  @JsonKey(ignore: true)
   @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-  }) {
-    return initial();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-  }) {
-    return initial?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-  }) {
-    return initial(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-  }) {
-    return initial?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial(this);
-    }
-    return orElse();
-  }
+  @pragma('vm:prefer-inline')
+  _$$SearchStateImplCopyWith<_$SearchStateImpl> get copyWith =>
+      __$$SearchStateImplCopyWithImpl<_$SearchStateImpl>(this, _$identity);
 }
 
-abstract class _Initial implements SearchState {
-  const factory _Initial() = _$InitialImpl;
+abstract class _SearchState implements SearchState {
+  const factory _SearchState(
+      {required final List<ScarchResultData> searchlist,
+      required final List<Downloads> idelsearchlist,
+      required final bool isloading,
+      required final bool isError}) = _$SearchStateImpl;
+
+  @override
+  List<ScarchResultData> get searchlist;
+  @override
+  List<Downloads> get idelsearchlist;
+  @override
+  bool get isloading;
+  @override
+  bool get isError;
+  @override
+  @JsonKey(ignore: true)
+  _$$SearchStateImplCopyWith<_$SearchStateImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
