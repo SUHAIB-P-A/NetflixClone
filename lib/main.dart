@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:netflix/application/downloads/downlodes_bloc.dart';
+import 'package:netflix/application/search/search_bloc.dart';
 import 'package:netflix/core/colors/colors.dart';
 import 'package:netflix/domain/core/di/injuctable.dart';
 import 'package:netflix/presentation/main_page/Widgets/main_page.dart';
@@ -21,6 +22,10 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider(
           create: (context) => getit<DownlodesBloc>(),
+          
+        ),
+        BlocProvider(
+          create: (context) => getit<SearchBloc>(),
         ),
       ],
       child: MaterialApp(
