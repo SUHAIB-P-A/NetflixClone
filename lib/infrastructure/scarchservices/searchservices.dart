@@ -17,7 +17,7 @@ class Searchservices implements SearchServices {
         ApiEndPoints.endPointsSearch,
         queryParameters: {'query': movieQuary},
       );
-      //print(response.data.toString());
+      print(response.data.toString());
       if (response.statusCode == 200 || response.statusCode == 201) {
         final searchlist = ScaechRespo.fromJson(response.data);
         return Right(searchlist);
