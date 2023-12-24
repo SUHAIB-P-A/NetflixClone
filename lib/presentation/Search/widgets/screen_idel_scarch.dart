@@ -5,6 +5,7 @@ import 'package:netflix/application/search/search_bloc.dart';
 //import 'package:flutter/material.dart';
 import 'package:netflix/core/colors/colors.dart';
 import 'package:netflix/core/constants/const.dart';
+import 'package:netflix/core/constants/strings.dart';
 import 'package:netflix/presentation/Search/widgets/scrch_screen_title.dart';
 
 const image =
@@ -41,9 +42,15 @@ class ScarchIdel extends StatelessWidget {
               } else {
                 return ListView.separated(
                   shrinkWrap: true,
-                  itemBuilder: (context, index) => const SearchIdelItem(),
+                  itemBuilder: (context, index) {
+                    final movie = state.idelsearchlist[index];
+                    return SearchIdelItem(
+                      title: movie.title ?? "No Title",
+                      imgurl: '$kimageurl${movie.posterPath}',
+                    );
+                  },
                   separatorBuilder: (context, index) => khight20,
-                  itemCount: 10,
+                  itemCount: state.idelsearchlist.length,
                 );
               }
             },
@@ -56,14 +63,10 @@ class ScarchIdel extends StatelessWidget {
 
 // row carry movie image,movie name and a play icon
 class SearchIdelItem extends StatelessWidget {
-  // final String title;
-  // final String img;
+  final String title;
+  final String imgurl;
 
-  const SearchIdelItem(
-      {
-      // required this.title,
-      // required this.img,
-      super.key});
+  const SearchIdelItem({required this.title, required this.imgurl, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -75,17 +78,17 @@ class SearchIdelItem extends StatelessWidget {
           height: 65,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
-            image: const DecorationImage(
+            image: DecorationImage(
               fit: BoxFit.cover,
-              image: NetworkImage(image),
+              image: NetworkImage(imgurl),
             ),
           ),
         ),
         kwidth20,
-        const Expanded(
+        Expanded(
           child: Text(
-            "title",
-            style: TextStyle(
+            title,
+            style: const TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.bold,
             ),
