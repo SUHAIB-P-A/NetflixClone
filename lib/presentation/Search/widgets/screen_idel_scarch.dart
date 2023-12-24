@@ -1,4 +1,7 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:netflix/application/search/search_bloc.dart';
 //import 'package:flutter/material.dart';
 import 'package:netflix/core/colors/colors.dart';
 import 'package:netflix/core/constants/const.dart';
@@ -21,11 +24,29 @@ class ScarchIdel extends StatelessWidget {
         khight20,
         //list view for the below row
         Expanded(
-          child: ListView.separated(
-            shrinkWrap: true,
-            itemBuilder: (context, index) => const SearchIdelItem(),
-            separatorBuilder: (context, index) => khight20,
-            itemCount: 10,
+          child: BlocBuilder<SearchBloc, SearchState>(
+            builder: (context, state) {
+              if (state.isloading) {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              } else if (state.isError) {
+                return const Center(
+                  child: Text("data getting error"),
+                );
+              } else if (state.idelsearchlist.isEmpty) {
+                return const Center(
+                  child: Text("data empty"),
+                );
+              } else {
+                return ListView.separated(
+                  shrinkWrap: true,
+                  itemBuilder: (context, index) => const SearchIdelItem(),
+                  separatorBuilder: (context, index) => khight20,
+                  itemCount: 10,
+                );
+              }
+            },
           ),
         ),
       ],
@@ -35,7 +56,14 @@ class ScarchIdel extends StatelessWidget {
 
 // row carry movie image,movie name and a play icon
 class SearchIdelItem extends StatelessWidget {
-  const SearchIdelItem({super.key});
+  // final String title;
+  // final String img;
+
+  const SearchIdelItem(
+      {
+      // required this.title,
+      // required this.img,
+      super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +84,7 @@ class SearchIdelItem extends StatelessWidget {
         kwidth20,
         const Expanded(
           child: Text(
-            "Movie Name",
+            "title",
             style: TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.bold,

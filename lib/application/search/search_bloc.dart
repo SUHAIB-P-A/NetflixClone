@@ -2,6 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:netflix/domain/Search/models/scaech_respo/result.dart';
+import 'package:netflix/domain/core/failures/main_failures.dart';
 import 'package:netflix/domain/downloads/i_download_repo.dart';
 import 'package:netflix/domain/downloads/models/downloads.dart';
 import 'package:netflix/infrastructure/scarchservices/searchservices.dart';
@@ -20,10 +21,35 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
     this.searchservies,
   ) : super(SearchState.initial()) {
 //idel state
-    on<_Initial>((event, emit) {
+    on<_Initial>((event, emit) async {
+      emit(const SearchState(
+        searchlist: [],
+        idelsearchlist: [],
+        isloading: true,
+        isError: false,
+      ));
       //get trending
-      downloadservices.getdownloadsimages();
+      final resultidel = await downloadservices.getdownloadsimages();
+      final state = resultidel.fold(
+        (MainFailures l) {
+          return const SearchState(
+            searchlist: [],
+            idelsearchlist: [],
+            isloading: false,
+            isError: true,
+          );
+        },
+        (List<Downloads> list) {
+          return SearchState(
+            searchlist: [],
+            idelsearchlist: list,
+            isloading: false,
+            isError: false,
+          );
+        },
+      );
       //dispaly ui
+      emit(state);
     });
 //search state
     on<_SearchMovie>((event, emit) {
