@@ -22,15 +22,18 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
   ) : super(SearchState.initial()) {
 //idel state
     on<_Initial>((event, emit) async {
-      emit(const SearchState(
-        searchlist: [],
-        idelsearchlist: [],
-        isloading: true,
-        isError: false,
-      ));
+      if (state.idelsearchlist.isNotEmpty) {
+        emit( SearchState(
+          searchlist: [],
+          idelsearchlist: state.idelsearchlist,
+          isloading: false,
+          isError: false,
+        ));
+      }
+      
       //get trending
       final resultidel = await downloadservices.getdownloadsimages();
-      final state = resultidel.fold(
+      final _state = resultidel.fold(
         (MainFailures l) {
           return const SearchState(
             searchlist: [],
@@ -49,7 +52,7 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
         },
       );
       //dispaly ui
-      emit(state);
+      emit(_state);
     });
 //search state
     on<_SearchMovie>((event, emit) {

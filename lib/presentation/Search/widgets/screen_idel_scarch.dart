@@ -37,7 +37,7 @@ class ScarchIdel extends StatelessWidget {
                 );
               } else if (state.idelsearchlist.isEmpty) {
                 return const Center(
-                  child: Text("data empty"),
+                  child: CircularProgressIndicator(),
                 );
               } else {
                 return ListView.separated(
