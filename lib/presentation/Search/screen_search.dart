@@ -3,9 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:netflix/application/search/search_bloc.dart';
 import 'package:netflix/core/colors/colors.dart';
 import 'package:netflix/core/constants/const.dart';
+import 'package:netflix/domain/core/debouner/debouncer.dart';
 import 'package:netflix/presentation/Search/widgets/screen_idel_scarch.dart';
 import 'package:netflix/presentation/Search/widgets/screen_scarch_result.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+final _debouncer = Debouncer(milliseconds: 1 * 1000);
 
 class ScreenSearch extends StatelessWidget {
   const ScreenSearch({super.key});
@@ -13,8 +16,7 @@ class ScreenSearch extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      BlocProvider.of<SearchBloc>(context)
-          .add(const SearchEvent.initial());
+      BlocProvider.of<SearchBloc>(context).add(const SearchEvent.initial());
     });
     return Scaffold(
       body: SafeArea(
@@ -35,9 +37,23 @@ class ScreenSearch extends StatelessWidget {
                 ),
                 backgroundColor: grey.withOpacity(0.4),
                 style: const TextStyle(color: white),
+                onChanged: (value) {
+                  _debouncer.run(() {
+                    BlocProvider.of<SearchBloc>(context)
+                        .add(SearchEvent.searchMovie(movieQuary: value));
+                  });
+                },
               ),
               khight,
-              const Expanded(child: ScarchIdel())
+              Expanded(child: BlocBuilder<SearchBloc, SearchState>(
+                builder: (context, state) {
+                  if (state.searchlist.isEmpty) {
+                    return const ScarchIdel();
+                  } else {
+                    return const Screenresult();
+                  }
+                },
+              ))
               //const Expanded(child: Screenresult())
             ],
           ),
