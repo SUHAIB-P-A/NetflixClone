@@ -75,16 +75,16 @@ class SearchIdelItem extends StatelessWidget {
       children: [
         Container(
           width: screenwidth * 0.37,
-          height: 65,
+          height: 70,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
             image: DecorationImage(
-              fit: BoxFit.cover,
+              fit: BoxFit.fill,
               image: NetworkImage(imgurl),
             ),
           ),
         ),
-        kwidth20,
+        kwidth,
         Expanded(
           child: Text(
             title,
