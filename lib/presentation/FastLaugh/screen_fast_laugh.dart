@@ -8,21 +8,46 @@ class ScreenFastLaugh extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      BlocProvider.of<FastLaughBloc>(context).add(const Initialize());
-    },);
+    WidgetsBinding.instance.addPostFrameCallback(
+      (_) {
+        BlocProvider.of<FastLaughBloc>(context).add(const Initialize());
+      },
+    );
     return Scaffold(
       body: SafeArea(
-        child: PageView(
-          scrollDirection: Axis.vertical,
-          children: List.generate(
-            20,
-            (index) {
-              return VideoListItem(
-                index: index,
+        child: BlocBuilder<FastLaughBloc, FastLaughState>(
+          builder: (context, state) {
+            if (state.isloading) {
+              return const Center(
+                child: CircularProgressIndicator(
+                  strokeCap: StrokeCap.square,
+                ),
               );
-            },
-          ),
+            }
+             else if (state.iserror) {
+              return const Center(
+                child: Text("error 404"),
+              );
+            } else if (state.listofmovies.isEmpty) {
+              return const Center(
+                child: CircularProgressIndicator(
+                  strokeCap: StrokeCap.square,
+                ),
+              );
+            } else {
+              return PageView(
+                scrollDirection: Axis.vertical,
+                children: List.generate(
+                  20,
+                  (index) {
+                    return VideoListItem(
+                      index: index,
+                    );
+                  },
+                ),
+              );
+            }
+          },
         ),
       ),
     );

@@ -47,7 +47,7 @@ class VideoListItem extends StatelessWidget {
                             );
                           }
                           return CircleAvatar(
-                            radius: 30,
+                            radius: 35,
                             backgroundImage: NetworkImage(
                                 '$kimageurl${state.listofmovies[index].posterPath}'),
                           );
