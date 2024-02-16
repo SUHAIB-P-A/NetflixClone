@@ -28,7 +28,20 @@ class FastLaughBloc extends Bloc<FastLaughEvent, FastLaughState> {
   ) : super(FastLaughState.initial()) {
     on<Initialize>((event, emit) async {
       //fatch data(get trending movies)
-      final _result = await downloadserivies.getdownloadsimages();// _result  get image from treiding movies it is used for DP image
+      final _result = await downloadserivies
+          .getdownloadsimages(); // _result  get image from treiding movies it is used for DP image
+      _result.fold((l) {
+        return FastLaughState(
+          isloading: false,
+          iserror: true,
+          listofmovies: [],
+        );
+      },
+          (respo) => FastLaughState(
+                isloading: false,
+                iserror: false,
+                listofmovies: respo,
+              ));
 
       //send ui
     });
