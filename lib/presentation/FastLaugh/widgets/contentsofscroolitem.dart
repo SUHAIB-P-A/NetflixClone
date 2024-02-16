@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:netflix/application/fastLaugh/fast_laugh_bloc.dart';
 import 'package:netflix/core/colors/colors.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:netflix/core/constants/strings.dart';
 
 class VideoListItem extends StatelessWidget {
   final int index;
@@ -31,22 +34,31 @@ class VideoListItem extends StatelessWidget {
                     icon: const Icon(Icons.volume_off_outlined),
                   ),
                 ),
-                const Column(
+                Column(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Padding(
-                      padding: EdgeInsets.symmetric(vertical: 10),
-                      child: CircleAvatar(
-                        radius: 30,
-                        backgroundImage: NetworkImage(
-                            'https://himalayantribune.com/wp-content/uploads/2020/07/TIGER-1024x647.jpg'),
+                      padding: const EdgeInsets.symmetric(vertical: 10),
+                      child: BlocBuilder<FastLaughBloc, FastLaughState>(
+                        builder: (context, state) {
+                          if (state.listofmovies.isEmpty) {
+                            const Center(
+                              child: CircularProgressIndicator(),
+                            );
+                          }
+                          return CircleAvatar(
+                            radius: 30,
+                            backgroundImage: NetworkImage(
+                                '$kimageurl${state.listofmovies[index].posterPath}'),
+                          );
+                        },
                       ),
                     ),
-                    VideoActions(
+                    const VideoActions(
                         icon: Icons.emoji_emotions_outlined, title: 'LOL'),
-                    VideoActions(icon: Icons.add, title: 'ADD'),
-                    VideoActions(icon: Icons.share, title: 'SHARE'),
-                    VideoActions(
+                    const VideoActions(icon: Icons.add, title: 'ADD'),
+                    const VideoActions(icon: Icons.share, title: 'SHARE'),
+                    const VideoActions(
                         icon: Icons.play_arrow_outlined, title: 'PLAY'),
                   ],
                 ),
