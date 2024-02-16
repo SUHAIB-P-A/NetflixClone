@@ -44,6 +44,7 @@ class FastLaughBloc extends Bloc<FastLaughEvent, FastLaughState> {
               ));
 
       //send ui
+      emit(_state);
     });
   }
 }
