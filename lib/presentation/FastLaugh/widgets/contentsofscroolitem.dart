@@ -5,27 +5,6 @@ import 'package:netflix/core/colors/colors.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:netflix/domain/downloads/models/downloads.dart';
 
-//InheritedWidget concept
-class VideoListItemInheritedWidget extends InheritedWidget {
-  final Widget child;
-  final Downloads moviedata;
-
-  VideoListItemInheritedWidget({
-    Key? key,
-    required this.child,
-    required this.moviedata,
-  }) : super(child: child);
-
-  @override
-  bool updateShouldNotify(covariant VideoListItemInheritedWidget oldWidget) {
-    //widget update condition 
-  return oldWidget.moviedata!=moviedata;
-  }
-
-  static VideoListItemInheritedWidget? of(BuildContext context){
-    return context.dependOnInheritedWidgetOfExactType<VideoListItemInheritedWidget>();
-  }
-}
 
 class VideoListItem extends StatelessWidget {
   final int index;

@@ -1,7 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:netflix/application/fastLaugh/fast_laugh_bloc.dart';
+import 'package:netflix/domain/downloads/models/downloads.dart';
 import 'package:netflix/presentation/FastLaugh/widgets/contentsofscroolitem.dart';
+
+//InheritedWidget concept
+class VideoListItemInheritedWidget extends InheritedWidget {
+  final Widget widget;
+  final Downloads moviedata;
+
+  const VideoListItemInheritedWidget({
+    super.key,
+    required this.widget,
+    required this.moviedata,
+  }) : super(child: widget);
+
+  @override
+  bool updateShouldNotify(covariant VideoListItemInheritedWidget oldWidget) {
+    //widget update condition
+    return oldWidget.moviedata != moviedata;
+  }
+
+  static VideoListItemInheritedWidget? of(BuildContext context) {
+    return context
+        .dependOnInheritedWidgetOfExactType<VideoListItemInheritedWidget>();
+  }
+}
+// end
 
 class ScreenFastLaugh extends StatelessWidget {
   const ScreenFastLaugh({super.key});
@@ -23,8 +48,7 @@ class ScreenFastLaugh extends StatelessWidget {
                   strokeCap: StrokeCap.square,
                 ),
               );
-            }
-             else if (state.iserror) {
+            } else if (state.iserror) {
               return const Center(
                 child: Text("error 404"),
               );
