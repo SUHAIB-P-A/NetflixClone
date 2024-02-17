@@ -21,6 +21,10 @@ class VideoListItemInheritedWidget extends InheritedWidget {
     //widget update condition 
   return oldWidget.moviedata!=moviedata;
   }
+
+  static VideoListItemInheritedWidget? of(BuildContext context){
+    return context.dependOnInheritedWidgetOfExactType<VideoListItemInheritedWidget>();
+  }
 }
 
 class VideoListItem extends StatelessWidget {
