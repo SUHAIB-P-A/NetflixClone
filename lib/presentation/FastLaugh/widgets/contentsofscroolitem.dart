@@ -1,8 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:netflix/application/fastLaugh/fast_laugh_bloc.dart';
+
 import 'package:netflix/core/colors/colors.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:netflix/core/constants/strings.dart';
+import 'package:netflix/domain/downloads/models/downloads.dart';
+
+//InheritedWidget concept
+class VideoListItemInheritedWidget extends InheritedWidget {
+
+final Widget child;
+final Downloads moviedata;
+
+VideoListItemInheritedWidget(this.child,this.moviedata)
+
+  @override
+  bool updateShouldNotify(covariant InheritedWidget oldWidget) {
+    // TODO: implement updateShouldNotify
+    throw UnimplementedError();
+  }
+  
+}
 
 class VideoListItem extends StatelessWidget {
   final int index;
@@ -41,7 +57,8 @@ class VideoListItem extends StatelessWidget {
                       padding: EdgeInsets.symmetric(vertical: 10),
                       child: CircleAvatar(
                         radius: 35,
-                        backgroundImage: NetworkImage("https://m.media-amazon.com/images/M/MV5BZDMxNjJiMjgtYTBiYy00MDMyLWJiNmUtMDQxYWYwMTA4MDA3XkEyXkFqcGdeQXVyMTUyNjIwMDEw._V1_FMjpg_UY399_.jpg"),
+                        backgroundImage: NetworkImage(
+                            "https://m.media-amazon.com/images/M/MV5BZDMxNjJiMjgtYTBiYy00MDMyLWJiNmUtMDQxYWYwMTA4MDA3XkEyXkFqcGdeQXVyMTUyNjIwMDEw._V1_FMjpg_UY399_.jpg"),
                       ),
                     ),
                     VideoActions(
