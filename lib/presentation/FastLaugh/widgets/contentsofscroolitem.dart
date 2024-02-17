@@ -18,6 +18,7 @@ class VideoListItemInheritedWidget extends InheritedWidget {
 
   @override
   bool updateShouldNotify(covariant VideoListItemInheritedWidget oldWidget) {
+    //widget update condition 
   return oldWidget.moviedata!=moviedata;
   }
 }
