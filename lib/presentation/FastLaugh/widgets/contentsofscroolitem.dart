@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:netflix/core/colors/colors.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -6,18 +7,19 @@ import 'package:netflix/domain/downloads/models/downloads.dart';
 
 //InheritedWidget concept
 class VideoListItemInheritedWidget extends InheritedWidget {
+  final Widget child;
+  final Downloads moviedata;
 
-final Widget child;
-final Downloads moviedata;
-
-VideoListItemInheritedWidget(this.child,this.moviedata)
+  VideoListItemInheritedWidget({
+    Key? key,
+    required this.child,
+    required this.moviedata,
+  }) : super(child: child);
 
   @override
-  bool updateShouldNotify(covariant InheritedWidget oldWidget) {
-    // TODO: implement updateShouldNotify
-    throw UnimplementedError();
+  bool updateShouldNotify(covariant VideoListItemInheritedWidget oldWidget) {
+    
   }
-  
 }
 
 class VideoListItem extends StatelessWidget {
