@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
-
 import 'package:netflix/core/colors/colors.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:netflix/domain/downloads/models/downloads.dart';
-
+import 'package:netflix/core/constants/strings.dart';
+import 'package:netflix/presentation/FastLaugh/screen_fast_laugh.dart';
 
 class VideoListItem extends StatelessWidget {
   final int index;
@@ -15,6 +12,8 @@ class VideoListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final posterPath =
+        VideoListItemInheritedWidget.of(context)?.moviedata.posterPath;
     return Stack(
       children: [
         Container(
@@ -36,22 +35,21 @@ class VideoListItem extends StatelessWidget {
                     icon: const Icon(Icons.volume_off_outlined),
                   ),
                 ),
-                const Column(
+                 Column(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Padding(
-                      padding: EdgeInsets.symmetric(vertical: 10),
+                      padding: const EdgeInsets.symmetric(vertical: 10),
                       child: CircleAvatar(
                         radius: 35,
-                        backgroundImage: NetworkImage(
-                            "https://m.media-amazon.com/images/M/MV5BZDMxNjJiMjgtYTBiYy00MDMyLWJiNmUtMDQxYWYwMTA4MDA3XkEyXkFqcGdeQXVyMTUyNjIwMDEw._V1_FMjpg_UY399_.jpg"),
+                        backgroundImage:posterPath==null?null: NetworkImage('$kimageurl$posterPath'),
                       ),
                     ),
-                    VideoActions(
+                    const VideoActions(
                         icon: Icons.emoji_emotions_outlined, title: 'LOL'),
-                    VideoActions(icon: Icons.add, title: 'ADD'),
-                    VideoActions(icon: Icons.share, title: 'SHARE'),
-                    VideoActions(
+                    const VideoActions(icon: Icons.add, title: 'ADD'),
+                    const VideoActions(icon: Icons.share, title: 'SHARE'),
+                    const VideoActions(
                         icon: Icons.play_arrow_outlined, title: 'PLAY'),
                   ],
                 ),
