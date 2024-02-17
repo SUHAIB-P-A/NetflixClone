@@ -34,31 +34,21 @@ class VideoListItem extends StatelessWidget {
                     icon: const Icon(Icons.volume_off_outlined),
                   ),
                 ),
-                Column(
+                const Column(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 10),
-                      child: BlocBuilder<FastLaughBloc, FastLaughState>(
-                        builder: (context, state) {
-                          if (state.listofmovies.isEmpty) {
-                            const Center(
-                              child: CircularProgressIndicator(),
-                            );
-                          }
-                          return CircleAvatar(
-                            radius: 35,
-                            backgroundImage: NetworkImage(
-                                '$kimageurl${state.listofmovies[index].posterPath}'),
-                          );
-                        },
+                      padding: EdgeInsets.symmetric(vertical: 10),
+                      child: CircleAvatar(
+                        radius: 35,
+                        backgroundImage: NetworkImage("https://m.media-amazon.com/images/M/MV5BZDMxNjJiMjgtYTBiYy00MDMyLWJiNmUtMDQxYWYwMTA4MDA3XkEyXkFqcGdeQXVyMTUyNjIwMDEw._V1_FMjpg_UY399_.jpg"),
                       ),
                     ),
-                    const VideoActions(
+                    VideoActions(
                         icon: Icons.emoji_emotions_outlined, title: 'LOL'),
-                    const VideoActions(icon: Icons.add, title: 'ADD'),
-                    const VideoActions(icon: Icons.share, title: 'SHARE'),
-                    const VideoActions(
+                    VideoActions(icon: Icons.add, title: 'ADD'),
+                    VideoActions(icon: Icons.share, title: 'SHARE'),
+                    VideoActions(
                         icon: Icons.play_arrow_outlined, title: 'PLAY'),
                   ],
                 ),
