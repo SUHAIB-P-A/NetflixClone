@@ -62,10 +62,14 @@ class ScreenFastLaugh extends StatelessWidget {
               return PageView(
                 scrollDirection: Axis.vertical,
                 children: List.generate(
-                  20,
+                  state.listofmovies.length,
                   (index) {
-                    return VideoListItem(
-                      index: index,
+                    return VideoListItemInheritedWidget(
+                      widget: VideoListItem(
+                        key: Key(index.toString()),
+                        index: index,
+                      ),
+                      moviedata: state.listofmovies[index],
                     );
                   },
                 ),
