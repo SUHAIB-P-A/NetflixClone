@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:netflix/core/colors/colors.dart';
 import 'package:netflix/core/constants/strings.dart';
 import 'package:netflix/presentation/FastLaugh/screen_fast_laugh.dart';
+import 'package:video_player/video_player.dart';
 
 class VideoListItem extends StatelessWidget {
   final int index;
@@ -108,6 +109,8 @@ class Videoplayer extends StatefulWidget {
 }
 
 class _VideoplayerState extends State<Videoplayer> {
+
+  late VideoPlayerController _videoPlayerController;
   @override
   Widget build(BuildContext context) {
     return Container();
