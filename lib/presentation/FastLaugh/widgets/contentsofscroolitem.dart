@@ -14,12 +14,12 @@ class VideoListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final videoUrl= dummyvideo_url[index % dummyvideo_url.length];
+    final videoUrl = dummyvideo_url[index % dummyvideo_url.length];
     final posterPath =
         VideoListItemInheritedWidget.of(context)?.moviedata.posterPath;
     return Stack(
       children: [
-       Videoplayer(videourl: videoUrl, onStateChanged: (bool){}),
+        Videoplayer(videourl: videoUrl, onStateChanged: (bool) {}),
         Align(
           alignment: Alignment.bottomCenter,
           child: Padding(
@@ -117,7 +117,7 @@ class _VideoplayerState extends State<Videoplayer> {
         VideoPlayerController.networkUrl(Uri.parse(widget.videourl));
     _videoPlayerController.initialize().then((value) {
       setState(() {});
-      _videoPlayerController.play();
+      _videoPlayerController.pause();
     });
     super.initState();
   }
