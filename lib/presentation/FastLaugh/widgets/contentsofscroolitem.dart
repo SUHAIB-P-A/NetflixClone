@@ -109,8 +109,18 @@ class Videoplayer extends StatefulWidget {
 }
 
 class _VideoplayerState extends State<Videoplayer> {
-
   late VideoPlayerController _videoPlayerController;
+
+  @override
+  void initState() {
+    _videoPlayerController =
+        VideoPlayerController.networkUrl(Uri.http(widget.videourl));
+    _videoPlayerController.initialize().then((value) {
+      setState(() {});
+    });
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container();
