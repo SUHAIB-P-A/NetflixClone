@@ -125,4 +125,10 @@ class _VideoplayerState extends State<Videoplayer> {
   Widget build(BuildContext context) {
     return Container();
   }
+
+  @override
+  void dispose() {
+    _videoPlayerController.dispose();
+    super.dispose();
+  }
 }
