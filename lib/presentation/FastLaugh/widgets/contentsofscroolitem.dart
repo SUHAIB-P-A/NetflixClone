@@ -35,14 +35,16 @@ class VideoListItem extends StatelessWidget {
                     icon: const Icon(Icons.volume_off_outlined),
                   ),
                 ),
-                 Column(
+                Column(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 10),
                       child: CircleAvatar(
                         radius: 35,
-                        backgroundImage:posterPath==null?null: NetworkImage('$kimageurl$posterPath'),
+                        backgroundImage: posterPath == null
+                            ? null
+                            : NetworkImage('$kimageurl$posterPath'),
                       ),
                     ),
                     const VideoActions(
@@ -89,5 +91,25 @@ class VideoActions extends StatelessWidget {
         ],
       ),
     );
+  }
+}
+
+class Videoplayer extends StatefulWidget {
+  final String videourl;
+  final void Function(bool isPlaying) onStateChanged;
+  const Videoplayer({
+    super.key,
+    required this.videourl,
+    required this.onStateChanged,
+  });
+
+  @override
+  State<Videoplayer> createState() => _VideoplayerState();
+}
+
+class _VideoplayerState extends State<Videoplayer> {
+  @override
+  Widget build(BuildContext context) {
+    return Container();
   }
 }
