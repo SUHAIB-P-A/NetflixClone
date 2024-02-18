@@ -8,7 +8,7 @@ part 'fast_laugh_event.dart';
 part 'fast_laugh_state.dart';
 part 'fast_laugh_bloc.freezed.dart';
 
-final video_url = [
+final dummyvideo_url = [
   "https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
   "https://storage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
   "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",

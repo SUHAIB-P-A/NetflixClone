@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:netflix/application/fastLaugh/fast_laugh_bloc.dart';
 import 'package:netflix/core/colors/colors.dart';
 import 'package:netflix/core/constants/strings.dart';
 import 'package:netflix/presentation/FastLaugh/screen_fast_laugh.dart';
@@ -13,13 +14,12 @@ class VideoListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final videoUrl= dummyvideo_url[index % dummyvideo_url.length];
     final posterPath =
         VideoListItemInheritedWidget.of(context)?.moviedata.posterPath;
     return Stack(
       children: [
-        Container(
-          color: Colors.accents[index % Colors.accents.length],
-        ),
+       Videoplayer(videourl: videoUrl, onStateChanged: (bool){}),
         Align(
           alignment: Alignment.bottomCenter,
           child: Padding(
@@ -114,9 +114,10 @@ class _VideoplayerState extends State<Videoplayer> {
   @override
   void initState() {
     _videoPlayerController =
-        VideoPlayerController.networkUrl(Uri.http(widget.videourl));
+        VideoPlayerController.networkUrl(Uri.parse(widget.videourl));
     _videoPlayerController.initialize().then((value) {
       setState(() {});
+      _videoPlayerController.play();
     });
     super.initState();
   }
