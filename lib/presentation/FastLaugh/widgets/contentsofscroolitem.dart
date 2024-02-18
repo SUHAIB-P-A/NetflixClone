@@ -123,7 +123,21 @@ class _VideoplayerState extends State<Videoplayer> {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return SizedBox(
+        height: double.infinity,
+        width: double.infinity,
+        child: _videoPlayerController.value.isInitialized
+            ? AspectRatio(
+                aspectRatio: _videoPlayerController.value.aspectRatio,
+                child: VideoPlayer(
+                  _videoPlayerController,
+                ),
+              )
+            : const Center(
+                child: CircularProgressIndicator(
+                  strokeWidth: 2,
+                ),
+              ));
   }
 
   @override
