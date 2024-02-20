@@ -1,9 +1,11 @@
+
+
 import 'package:flutter/material.dart';
 import 'package:netflix/application/fastLaugh/fast_laugh_bloc.dart';
 import 'package:netflix/core/colors/colors.dart';
 import 'package:netflix/core/constants/strings.dart';
 import 'package:netflix/presentation/FastLaugh/screen_fast_laugh.dart';
-import 'package:share_plus/share_plus.dart';
+
 import 'package:video_player/video_player.dart';
 
 class VideoListItem extends StatelessWidget {
@@ -52,19 +54,9 @@ class VideoListItem extends StatelessWidget {
                     const VideoActions(
                         icon: Icons.emoji_emotions_outlined, title: 'LOL'),
                     const VideoActions(icon: Icons.add, title: 'ADD'),
-                    GestureDetector(
-                      onTap: () async{
-                        final text = VideoListItemInheritedWidget.of(context)
-                            ?.moviedata
-                            .title;
-                        if (text != null) {
-                         await Share.share(text);
-                        }
-                      },
-                      child: const VideoActions(
-                        icon: Icons.share,
-                        title: 'SHARE',
-                      ),
+                    const VideoActions(
+                      icon: Icons.share,
+                      title: 'SHARE',
                     ),
                     const VideoActions(
                         icon: Icons.play_arrow_outlined, title: 'PLAY'),

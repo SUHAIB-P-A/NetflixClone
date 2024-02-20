@@ -46,7 +46,7 @@ dependencies:
   get_it: ^7.6.4
   injectable: ^2.3.2
   injectable_generator: ^2.4.1
-  share_plus: ^7.2.2
+  
   
   
 
@@ -59,7 +59,7 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^2.0.0
+  flutter_lints: ^3.0.1
   build_runner: ^2.4.7
   json_serializable: ^6.7.1
   
