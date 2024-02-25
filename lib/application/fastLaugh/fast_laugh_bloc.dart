@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:netflix/domain/downloads/i_download_repo.dart';
@@ -20,6 +21,7 @@ final dummyvideo_url = [
   "https://storage.googleapis.com/gtv-videos-bucket/sample/SubaruOutbackOnStreetAndDirt.mp4",
   "https://storage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4"
 ];
+ValueNotifier<Set<int>> likedvideolist = ValueNotifier({});
 
 @injectable
 class FastLaughBloc extends Bloc<FastLaughEvent, FastLaughState> {
@@ -30,7 +32,7 @@ class FastLaughBloc extends Bloc<FastLaughEvent, FastLaughState> {
       //fatch data(get trending movies)
       final result = await downloadserivies
           .getdownloadsimages(); // _result  get image from treiding movies it is used for DP image
-      //initial loading state send to UI    
+      //initial loading state send to UI
       emit(const FastLaughState(
         isloading: true,
         iserror: false,
@@ -51,6 +53,16 @@ class FastLaughBloc extends Bloc<FastLaughEvent, FastLaughState> {
 
       //send ui
       emit(state);
+
+      //liked video
+      on<Liked>((event, emit) async{
+        likedvideolist.value.add(event.id);
+      });
+
+      //unliked video
+      on<unliked>((event, emit) async{
+        likedvideolist.value.remove(event.id);
+      });
     });
   }
 }

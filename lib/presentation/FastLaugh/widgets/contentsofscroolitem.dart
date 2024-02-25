@@ -1,7 +1,8 @@
-
-
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:netflix/application/fastLaugh/fast_laugh_bloc.dart';
 import 'package:netflix/core/colors/colors.dart';
 import 'package:netflix/core/constants/strings.dart';
@@ -52,8 +53,35 @@ class VideoListItem extends StatelessWidget {
                             : NetworkImage('$kimageurl$posterPath'),
                       ),
                     ),
-                    const VideoActions(
-                        icon: Icons.emoji_emotions_outlined, title: 'LOL'),
+                    ValueListenableBuilder(
+                      valueListenable: likedvideolist,
+                      builder: (context, newlikedides, _) {
+                        final _index = index;
+                        if (newlikedides.contains(_index)) {
+                          return GestureDetector(
+                            onTap: () {
+                              likedvideolist.value.remove(_index);
+                              likedvideolist.notifyListeners();
+                            },
+                            child: const VideoActions(
+                              icon: Icons.emoji_emotions_outlined,
+                              title: 'LOL',
+                            ),
+                          );
+                        } else {
+                          return GestureDetector(
+                            onTap: () {
+                              likedvideolist.value.add(_index);
+                              likedvideolist.notifyListeners();
+                            },
+                            child: const VideoActions(
+                              icon: Icons.favorite_border,
+                              title: 'Like',
+                            ),
+                          );
+                        }
+                      },
+                    ),
                     const VideoActions(icon: Icons.add, title: 'ADD'),
                     const VideoActions(
                       icon: Icons.share,
