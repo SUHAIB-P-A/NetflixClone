@@ -1,5 +1,6 @@
 
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:netflix/application/fastLaugh/fast_laugh_bloc.dart';
 import 'package:netflix/core/colors/colors.dart';
@@ -123,6 +124,7 @@ class _VideoplayerState extends State<Videoplayer> {
         VideoPlayerController.networkUrl(Uri.parse(widget.videourl));
     _videoPlayerController.initialize().then((value) {
       setState(() {});
+      _videoPlayerController.play();
       _videoPlayerController.pause();
     });
     super.initState();
