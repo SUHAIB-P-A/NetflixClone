@@ -6,7 +6,7 @@ import 'package:netflix/domain/Search/models/scaech_respo/scaech_respo.dart';
 import 'package:netflix/domain/core/api_end_points.dart';
 import 'package:netflix/domain/core/failures/main_failures.dart';
 
-@LazySingleton(as: SearchServices) 
+@LazySingleton(as: SearchServices)
 class Searchservices implements SearchServices {
   @override
   Future<Either<MainFailures, ScaechRespo>> searchMovies({

@@ -55,12 +55,12 @@ class FastLaughBloc extends Bloc<FastLaughEvent, FastLaughState> {
       emit(state);
 
       //liked video
-      on<Liked>((event, emit) async{
+      on<Liked>((event, emit) async {
         likedvideolist.value.add(event.id);
       });
 
       //unliked video
-      on<unliked>((event, emit) async{
+      on<unliked>((event, emit) async {
         likedvideolist.value.remove(event.id);
       });
     });

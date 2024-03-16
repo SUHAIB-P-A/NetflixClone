@@ -153,7 +153,6 @@ class _VideoplayerState extends State<Videoplayer> {
     _videoPlayerController.initialize().then((value) {
       setState(() {});
       _videoPlayerController.play();
-      _videoPlayerController.pause();
     });
     super.initState();
   }

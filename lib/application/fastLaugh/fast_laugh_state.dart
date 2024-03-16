@@ -7,8 +7,11 @@ class FastLaughState with _$FastLaughState {
     required bool isloading,
     @Default([]) List<int> likedvideoids,
     required bool iserror,
-    
   }) = _FastLaughState;
 
-  factory FastLaughState.initial()=>const FastLaughState(isloading: true, iserror: false, listofmovies: [], );
+  factory FastLaughState.initial() => const FastLaughState(
+        isloading: true,
+        iserror: false,
+        listofmovies: [],
+      );
 }

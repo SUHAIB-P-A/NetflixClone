@@ -26,7 +26,9 @@ class Screenresult extends StatelessWidget {
                 childAspectRatio: 1 / 1.7,
                 children: List.generate(20, (index) {
                   final _movie = state.searchlist[index];
-                  return  ResultItem(imagurl: '$kimageurl${_movie.posterPath}',);
+                  return ResultItem(
+                    imagurl: '$kimageurl${_movie.posterPath}',
+                  );
                 }),
               );
             },
