@@ -8,10 +8,11 @@ part of 'hot_and_new_respo.dart';
 
 HotAndNewRespo _$HotAndNewRespoFromJson(Map<String, dynamic> json) =>
     HotAndNewRespo(
-      page: json['1'] as int?,
+      page: (json['1'] as num?)?.toInt(),
       results: (json['results'] as List<dynamic>?)
-          ?.map((e) => Result.fromJson(e as Map<String, dynamic>))
-          .toList(),
+              ?.map((e) => HotAndNewData.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const [],
     );
 
 Map<String, dynamic> _$HotAndNewRespoToJson(HotAndNewRespo instance) =>
@@ -20,9 +21,10 @@ Map<String, dynamic> _$HotAndNewRespoToJson(HotAndNewRespo instance) =>
       'results': instance.results,
     };
 
-Result _$ResultFromJson(Map<String, dynamic> json) => Result(
+HotAndNewData _$HotAndNewDataFromJson(Map<String, dynamic> json) =>
+    HotAndNewData(
       backdropPath: json['backdrop_path'] as String?,
-      id: json['id'] as int?,
+      id: (json['id'] as num?)?.toInt(),
       originalLanguage: json['original_language'] as String?,
       originalTitle: json['original_title'] as String?,
       overview: json['overview'] as String?,
@@ -31,7 +33,8 @@ Result _$ResultFromJson(Map<String, dynamic> json) => Result(
       title: json['title'] as String?,
     );
 
-Map<String, dynamic> _$ResultToJson(Result instance) => <String, dynamic>{
+Map<String, dynamic> _$HotAndNewDataToJson(HotAndNewData instance) =>
+    <String, dynamic>{
       'backdrop_path': instance.backdropPath,
       'id': instance.id,
       'original_language': instance.originalLanguage,

@@ -8,7 +8,7 @@ part of 'result.dart';
 
 ScarchResultData _$ScarchResultDataFromJson(Map<String, dynamic> json) =>
     ScarchResultData(
-      id: json['id'] as int?,
+      id: (json['id'] as num?)?.toInt(),
       originalTitle: json['original_title'] as String?,
       posterPath: json['poster_path'] as String?,
     );

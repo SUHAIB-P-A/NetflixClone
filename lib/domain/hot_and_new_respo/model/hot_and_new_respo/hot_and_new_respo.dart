@@ -10,7 +10,7 @@ class HotAndNewRespo {
   @JsonKey(name: 'results')
   List<HotAndNewData>? results;
 
-  HotAndNewRespo({this.page, this.results});
+  HotAndNewRespo({this.page, this.results = const []});
 
   factory HotAndNewRespo.fromJson(Map<String, dynamic> json) {
     return _$HotAndNewRespoFromJson(json);
@@ -57,8 +57,8 @@ class HotAndNewData {
   });
 
   factory HotAndNewData.fromJson(Map<String, dynamic> json) {
-    return _$ResultFromJson(json);
+    return _$HotAndNewDataFromJson(json);
   }
 
-  Map<String, dynamic> toJson() => _$ResultToJson(this);
+  Map<String, dynamic> toJson() => _$HotAndNewDataToJson(this);
 }
