@@ -8,7 +8,7 @@ class HotAndNewRespo {
   int? page;
 
   @JsonKey(name: 'results')
-  List<Result>? results;
+  List<HotAndNewData>? results;
 
   HotAndNewRespo({this.page, this.results});
 
@@ -20,7 +20,7 @@ class HotAndNewRespo {
 }
 
 @JsonSerializable()
-class Result {
+class HotAndNewData {
   @JsonKey(name: 'backdrop_path')
   String? backdropPath;
 
@@ -45,7 +45,7 @@ class Result {
   @JsonKey(name: "title")
   String? title;
 
-  Result({
+  HotAndNewData({
     this.backdropPath,
     this.id,
     this.originalLanguage,
@@ -56,7 +56,7 @@ class Result {
     this.title,
   });
 
-  factory Result.fromJson(Map<String, dynamic> json) {
+  factory HotAndNewData.fromJson(Map<String, dynamic> json) {
     return _$ResultFromJson(json);
   }
 
