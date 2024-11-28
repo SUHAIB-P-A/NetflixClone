@@ -6,8 +6,21 @@ import 'package:netflix/presentation/Widgets/iamge_widget.dart';
 import 'package:netflix/presentation/home/widgets/bottomicon.dart';
 
 class CommigSoonWidget extends StatelessWidget {
+  final String id;
+  final String month;
+  final String day;
+  final String posterPath;
+  final String overview;
+  final String movieName;
+
   const CommigSoonWidget({
     super.key,
+    required this.id,
+    required this.month,
+    required this.day,
+    required this.posterPath,
+    required this.overview,
+    required this.movieName,
   });
 
   @override

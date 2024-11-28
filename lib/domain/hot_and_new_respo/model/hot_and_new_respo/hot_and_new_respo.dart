@@ -8,7 +8,7 @@ class HotAndNewRespo {
   int? page;
 
   @JsonKey(name: 'results')
-  List<HotAndNewData>? results;
+  List<HotAndNewData> results;
 
   HotAndNewRespo({this.page, this.results = const []});
 
