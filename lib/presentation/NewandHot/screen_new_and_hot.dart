@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:netflix/application/hotandnew/hot_and_new_bloc.dart';
 import 'package:netflix/core/colors/colors.dart';
 import 'package:netflix/core/constants/const.dart';
 import 'package:netflix/presentation/NewandHot/widgets/commingsoon.dart';
@@ -78,35 +80,132 @@ class ScreenNewandHot extends StatelessWidget {
 
 //comming soon screen
   Widget _bottomcommonsoon() {
-    return ListView.builder(
-      itemCount: 10,
-      itemBuilder: (
-        BuildContext context,
-        index,
-      ) =>
-          const Padding(
-        padding: EdgeInsets.only(top: 10.0),
-        child: CommigSoonWidget(),
-      ),
+    return const CommingSoonList();
+  }
+}
+
+class CommingSoonList extends StatelessWidget {
+  const CommingSoonList({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<HotAndNewBloc, HotAndNewState>(
+      builder: (context, state) {
+        if (state.isLoading) {
+          return const Center(
+            child: CircularProgressIndicator(
+              strokeWidth: 1,
+            ),
+          );
+        } else if (state.isError) {
+          return const Center(
+            child: Text(
+              "Error while load comming soon data",
+            ),
+          );
+        } else if (state.commingsoon.isEmpty) {
+          return const Center(
+            child: Text(
+              "Comming soon list is empty",
+            ),
+          );
+        } else {
+          return ListView.builder(
+              itemCount: state.commingsoon.length,
+              itemBuilder: (
+                BuildContext context,
+                index,
+              ) {
+                final movie = state.commingsoon[index];
+
+                return Padding(
+                  padding: const EdgeInsets.only(top: 10.0),
+                  child: CommigSoonWidget(
+                    id: movie.id == null ? "" : movie.id.toString(),
+                    month: "MAR",
+                    day: "11",
+                    posterPath: movie.posterPath == null
+                        ? "no image"
+                        : movie.posterPath.toString(),
+                    overview: movie.overview == null
+                        ? "no overview"
+                        : movie.overview.toString(),
+                    movieName: movie.title == null
+                        ? "no title"
+                        : movie.title.toString(),
+                  ),
+                );
+              });
+        }
+      },
     );
   }
 }
 
 //every ones watching screen
 Widget _bottomeveryonewatching() {
-  return ListView.builder(
-    itemCount: 10,
-    itemBuilder: (
-      BuildContext context,
-      intex,
-    ) =>
-        const Padding(
-      padding: EdgeInsets.only(
-        top: 10,
-        left: 10,
-        right: 10,
-      ),
-      child: EvereonceWatching(),
-    ),
-  );
+  return const EveryoneisWatchingList();
+}
+
+class EveryoneisWatchingList extends StatelessWidget {
+  const EveryoneisWatchingList({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<HotAndNewBloc, HotAndNewState>(
+      builder: (context, state) {
+        if (state.isLoading) {
+          return const Center(
+            child: CircularProgressIndicator(
+              strokeWidth: 1,
+            ),
+          );
+        } else if (state.isError) {
+          return const Center(
+            child: Text(
+              "Error while load comming soon data",
+            ),
+          );
+        } else if (state.everyonewatching.isEmpty) {
+          return const Center(
+            child: Text(
+              "Comming soon list is empty",
+            ),
+          );
+        } else {
+          return ListView.builder(
+            itemCount: 10,
+            itemBuilder: (
+              BuildContext context,
+              intex,
+            ) {
+              final movie = state.everyonewatching[intex];
+              return Padding(
+                padding: const EdgeInsets.only(
+                  top: 10,
+                  left: 10,
+                  right: 10,
+                ),
+                child: EvereonceWatching(
+                  id: movie.id == null ? "" : movie.id.toString(),
+                  posterPath: movie.posterPath == null
+                      ? "no image"
+                      : movie.posterPath.toString(),
+                  overview: movie.overview == null
+                      ? "no overview"
+                      : movie.overview.toString(),
+                  movieName:
+                      movie.title == null ? "no title" : movie.title.toString(),
+                ),
+              );
+            },
+          );
+        }
+      },
+    );
+  }
 }

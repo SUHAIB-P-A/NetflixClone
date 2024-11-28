@@ -2,7 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:netflix/core/colors/colors.dart';
 
 class TextHotandNew extends StatelessWidget {
-  const TextHotandNew({super.key});
+  final String movieName;
+  final String overView;
+  const TextHotandNew({
+    super.key,
+    required this.movieName,
+    required this.overView,
+  });
 
   @override
   Widget build(BuildContext context) {

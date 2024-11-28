@@ -28,20 +28,20 @@ class CommigSoonWidget extends StatelessWidget {
     final Size size = MediaQuery.of(context).size;
     return Row(
       children: [
-        const SizedBox(
+        SizedBox(
           width: 50,
           height: 550,
           child: Column(
             children: [
               Text(
-                "FEB",
-                style: TextStyle(
+                month,
+                style: const TextStyle(
                   color: grey,
                 ),
               ),
               Text(
-                "11",
-                style: TextStyle(
+                day,
+                style: const TextStyle(
                   fontSize: 22,
                   fontWeight: FontWeight.bold,
                   letterSpacing: 4,
@@ -53,22 +53,24 @@ class CommigSoonWidget extends StatelessWidget {
         SizedBox(
           height: 550,
           width: size.width - 60,
-          child: const Column(
+          child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              ImageWedget(),
+              ImageWedget(
+                posterpath: posterPath,
+              ),
               khight20,
               Row(
                 children: [
                   Text(
-                    "MASTER",
-                    style: TextStyle(
+                    movieName,
+                    style: const TextStyle(
                       fontSize: 32,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  Spacer(),
-                  Row(
+                  const Spacer(),
+                  const Row(
                     children: [
                       BottomIconHome(
                         icon: Icons.notifications_outlined,
@@ -89,9 +91,12 @@ class CommigSoonWidget extends StatelessWidget {
                 ],
               ),
               khight,
-              Text("comming On Friday"),
+              const Text("comming On Friday"),
               khight,
-              TextHotandNew(),
+              TextHotandNew(
+                movieName: movieName,
+                overView: overview,
+              ),
             ],
           ),
         ),

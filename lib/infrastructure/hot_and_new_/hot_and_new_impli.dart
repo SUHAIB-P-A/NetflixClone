@@ -16,6 +16,7 @@ class HotAndNewImplimentation implements HotAndNewServices {
       final Response response = await Dio(BaseOptions()).get(
         ApiEndPoints.endpointsHotandNewMovie,
       );
+      log(ApiEndPoints.endpointsHotandNewMovie.toString());
       log(response.data.toString());
       if (response.statusCode == 200 || response.statusCode == 201) {
         final hotandnewmovielist = HotAndNewRespo.fromJson(response.data);

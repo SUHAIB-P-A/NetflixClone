@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:netflix/core/colors/colors.dart';
-import 'package:netflix/core/constants/const.dart';
 
 class ImageWedget extends StatelessWidget {
+  final String posterpath;
   const ImageWedget({
-    super.key,
+    super.key, required this.posterpath,
   });
 
   @override
@@ -15,7 +15,7 @@ class ImageWedget extends StatelessWidget {
           height: 220,
           width: double.infinity,
           child: Image.network(
-            newandkottempimg,
+            posterpath,
             fit: BoxFit.cover,
           ),
         ),
