@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:netflix/core/colors/colors.dart';
+import 'package:netflix/core/constants/strings.dart';
 
 class ImageWedget extends StatelessWidget {
   final String posterpath;
   const ImageWedget({
-    super.key, required this.posterpath,
+    super.key,
+    required this.posterpath,
   });
 
   @override
@@ -15,8 +17,8 @@ class ImageWedget extends StatelessWidget {
           height: 220,
           width: double.infinity,
           child: Image.network(
-            posterpath,
-            fit: BoxFit.cover,
+            "$kimageurl$posterpath",
+            fit: BoxFit.fill,
           ),
         ),
         Positioned(

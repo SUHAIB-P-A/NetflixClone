@@ -30,7 +30,7 @@ class HotAndNewData {
   @JsonKey(name: 'original_language')
   String? originalLanguage;
 
-  @JsonKey(name: 'original_title')
+  @JsonKey(name: 'original_name')
   String? originalTitle;
 
   @JsonKey(name: "overview")

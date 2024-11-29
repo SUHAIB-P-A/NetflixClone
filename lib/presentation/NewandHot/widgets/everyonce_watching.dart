@@ -19,15 +19,21 @@ class EvereonceWatching extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         //movie name  and discripsion
-        TextHotandNew(),
+        TextHotandNew(
+          movieName: movieName,
+          overView: overview,
+        ),
         khight50,
         //image
-        ImageWedget(),
+        ImageWedget(
+          posterpath: posterPath,
+        ),
         khight,
-        Row(
+        const Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             //icons

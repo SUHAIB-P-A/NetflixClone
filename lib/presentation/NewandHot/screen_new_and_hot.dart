@@ -91,6 +91,10 @@ class CommingSoonList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+WidgetsBinding.instance.addPostFrameCallback((_) {
+  BlocProvider.of<HotAndNewBloc>(context).add(const Loaddataincommingsoon());
+},);
+
     return BlocBuilder<HotAndNewBloc, HotAndNewState>(
       builder: (context, state) {
         if (state.isLoading) {
@@ -156,6 +160,12 @@ class EveryoneisWatchingList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback(
+      (_) {
+        BlocProvider.of<HotAndNewBloc>(context)
+            .add(const Loaddataineveryoneiswatching());
+      },
+    );
     return BlocBuilder<HotAndNewBloc, HotAndNewState>(
       builder: (context, state) {
         if (state.isLoading) {
@@ -195,11 +205,11 @@ class EveryoneisWatchingList extends StatelessWidget {
                   posterPath: movie.posterPath == null
                       ? "no image"
                       : movie.posterPath.toString(),
-                  overview: movie.overview == null
+                  overview: movie.overview == ""
                       ? "no overview"
                       : movie.overview.toString(),
                   movieName:
-                      movie.title == null ? "no title" : movie.title.toString(),
+                      movie.originalTitle == null ? "no title" : movie.originalTitle.toString(),
                 ),
               );
             },

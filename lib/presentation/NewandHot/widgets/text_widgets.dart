@@ -12,22 +12,25 @@ class TextHotandNew extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          "MASTER",
-          style: TextStyle(
+          movieName,
+          style: const TextStyle(
             fontSize: 18,
           ),
         ),
         Padding(
-            padding: EdgeInsets.only(right: 8, top: 8),
-            child: Text(
-              "Master is an action film from India about a professor, JD, who is sent to teach at a juvenile reform school for three months. He clashes with an unscrupulous man, Bhavani, who controls the school's young inmates to cover up his own criminal activities.",
-              style: TextStyle(wordSpacing: -1, color: grey),
-              textAlign: TextAlign.justify,
-            ))
+          padding: const EdgeInsets.only(right: 8, top: 8),
+          child: Text(
+            overView,
+            style: const TextStyle(wordSpacing: -1, color: grey),
+            textAlign: TextAlign.justify,
+            overflow: TextOverflow.ellipsis,
+            maxLines: 5,
+          ),
+        ),
       ],
     );
   }
