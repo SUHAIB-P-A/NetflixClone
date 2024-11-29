@@ -13,6 +13,7 @@ class CommigSoonWidget extends StatelessWidget {
   final String posterPath;
   final String overview;
   final String movieName;
+  final String dayofweek;
 
   const CommigSoonWidget({
     super.key,
@@ -21,7 +22,7 @@ class CommigSoonWidget extends StatelessWidget {
     required this.day,
     required this.posterPath,
     required this.overview,
-    required this.movieName,
+    required this.movieName, required this.dayofweek,
   });
 
   @override
@@ -62,7 +63,6 @@ class CommigSoonWidget extends StatelessWidget {
               ),
               khight20,
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Expanded(
                     child: SizedBox(
@@ -108,7 +108,7 @@ class CommigSoonWidget extends StatelessWidget {
                 ],
               ),
               khight,
-              const Text("comming On Friday"),
+               Text("comming On $dayofweek"),
               khight,
               TextHotandNew(
                 movieName: movieName,

@@ -1,6 +1,9 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
 import 'package:netflix/application/hotandnew/hot_and_new_bloc.dart';
 import 'package:netflix/core/colors/colors.dart';
 import 'package:netflix/core/constants/const.dart';
@@ -91,9 +94,12 @@ class CommingSoonList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-WidgetsBinding.instance.addPostFrameCallback((_) {
-  BlocProvider.of<HotAndNewBloc>(context).add(const Loaddataincommingsoon());
-},);
+    WidgetsBinding.instance.addPostFrameCallback(
+      (_) {
+        BlocProvider.of<HotAndNewBloc>(context)
+            .add(const Loaddataincommingsoon());
+      },
+    );
 
     return BlocBuilder<HotAndNewBloc, HotAndNewState>(
       builder: (context, state) {
@@ -123,13 +129,34 @@ WidgetsBinding.instance.addPostFrameCallback((_) {
                 index,
               ) {
                 final movie = state.commingsoon[index];
+                //log(movie.releaseDate.toString());
+                final date = DateTime.parse(movie.releaseDate!);
+                //log(date.weekday.toString());
+                final formatedate = DateFormat.yMMMMd('en_US').format(date);
+                //log(formatedate);
+
+                // Get the day of the week as a string
+                List<String> weekdays = [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday",
+                  "Sunday"
+                ];
+                String dayOfWeek = weekdays[date.weekday - 1];
 
                 return Padding(
                   padding: const EdgeInsets.only(top: 10.0),
                   child: CommigSoonWidget(
                     id: movie.id == null ? "" : movie.id.toString(),
-                    month: "MAR",
-                    day: "11",
+                    month: formatedate
+                        .split(' ')
+                        .first
+                        .substring(0, 3)
+                        .toUpperCase(),
+                    day: movie.releaseDate!.split('-')[1],
                     posterPath: movie.posterPath == null
                         ? "no image"
                         : movie.posterPath.toString(),
@@ -139,6 +166,8 @@ WidgetsBinding.instance.addPostFrameCallback((_) {
                     movieName: movie.title == null
                         ? "no title"
                         : movie.title.toString(),
+                    dayofweek:
+                        dayOfWeek == "" ? "relese day not yet" : dayOfWeek,
                   ),
                 );
               });
@@ -208,8 +237,9 @@ class EveryoneisWatchingList extends StatelessWidget {
                   overview: movie.overview == ""
                       ? "no overview"
                       : movie.overview.toString(),
-                  movieName:
-                      movie.originalTitle == null ? "no title" : movie.originalTitle.toString(),
+                  movieName: movie.originalTitle == null
+                      ? "no title"
+                      : movie.originalTitle.toString(),
                 ),
               );
             },
