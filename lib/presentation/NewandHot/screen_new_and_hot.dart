@@ -122,56 +122,62 @@ class CommingSoonList extends StatelessWidget {
             ),
           );
         } else {
-          return ListView.builder(
-              padding: const EdgeInsets.symmetric(vertical: 20),
-              itemCount: state.commingsoon.length,
-              itemBuilder: (
-                BuildContext context,
-                index,
-              ) {
-                final movie = state.commingsoon[index];
-                //log(movie.releaseDate.toString());
-                final date = DateTime.parse(movie.releaseDate!);
-                //log(date.weekday.toString());
-                final formatedate = DateFormat.yMMMMd('en_US').format(date);
-                //log(formatedate);
+          return RefreshIndicator(
+            onRefresh: () async {
+              BlocProvider.of<HotAndNewBloc>(context)
+                  .add(const Loaddataincommingsoon());
+            },
+            child: ListView.builder(
+                padding: const EdgeInsets.symmetric(vertical: 20),
+                itemCount: state.commingsoon.length,
+                itemBuilder: (
+                  BuildContext context,
+                  index,
+                ) {
+                  final movie = state.commingsoon[index];
+                  //log(movie.releaseDate.toString());
+                  final date = DateTime.parse(movie.releaseDate!);
+                  //log(date.weekday.toString());
+                  final formatedate = DateFormat.yMMMMd('en_US').format(date);
+                  //log(formatedate);
 
-                // Get the day of the week as a string
-                List<String> weekdays = [
-                  "Monday",
-                  "Tuesday",
-                  "Wednesday",
-                  "Thursday",
-                  "Friday",
-                  "Saturday",
-                  "Sunday"
-                ];
-                String dayOfWeek = weekdays[date.weekday - 1];
+                  // Get the day of the week as a string
+                  List<String> weekdays = [
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday",
+                    "Saturday",
+                    "Sunday"
+                  ];
+                  String dayOfWeek = weekdays[date.weekday - 1];
 
-                return Padding(
-                  padding: const EdgeInsets.only(top: 10.0),
-                  child: CommigSoonWidget(
-                    id: movie.id == null ? "" : movie.id.toString(),
-                    month: formatedate
-                        .split(' ')
-                        .first
-                        .substring(0, 3)
-                        .toUpperCase(),
-                    day: movie.releaseDate!.split('-')[1],
-                    posterPath: movie.posterPath == null
-                        ? "no image"
-                        : movie.posterPath.toString(),
-                    overview: movie.overview == null
-                        ? "no overview"
-                        : movie.overview.toString(),
-                    movieName: movie.title == null
-                        ? "no title"
-                        : movie.title.toString(),
-                    dayofweek:
-                        dayOfWeek == "" ? "relese day not yet" : dayOfWeek,
-                  ),
-                );
-              });
+                  return Padding(
+                    padding: const EdgeInsets.only(top: 10.0),
+                    child: CommigSoonWidget(
+                      id: movie.id == null ? "" : movie.id.toString(),
+                      month: formatedate
+                          .split(' ')
+                          .first
+                          .substring(0, 3)
+                          .toUpperCase(),
+                      day: movie.releaseDate!.split('-')[1],
+                      posterPath: movie.posterPath == null
+                          ? "no image"
+                          : movie.posterPath.toString(),
+                      overview: movie.overview == null
+                          ? "no overview"
+                          : movie.overview.toString(),
+                      movieName: movie.title == null
+                          ? "no title"
+                          : movie.title.toString(),
+                      dayofweek:
+                          dayOfWeek == "" ? "relese day not yet" : dayOfWeek,
+                    ),
+                  );
+                }),
+          );
         }
       },
     );
@@ -213,34 +219,40 @@ class EveryoneisWatchingList extends StatelessWidget {
             ),
           );
         } else {
-          return ListView.builder(
-            padding: const EdgeInsets.symmetric(vertical: 30),
-            itemCount: state.everyonewatching.length,
-            itemBuilder: (
-              BuildContext context,
-              intex,
-            ) {
-              final tv = state.everyonewatching[intex];
-              return Padding(
-                padding: const EdgeInsets.only(
-                  top: 10,
-                  left: 10,
-                  right: 10,
-                ),
-                child: EvereonceWatching(
-                  id: tv.id == null ? "" : tv.id.toString(),
-                  posterPath: tv.posterPath == null
-                      ? "no image"
-                      : tv.posterPath.toString(),
-                  overview: tv.overview == ""
-                      ? "no overview"
-                      : tv.overview.toString(),
-                  movieName: tv.originalTitle == null
-                      ? "no title"
-                      : tv.originalTitle.toString(),
-                ),
-              );
+          return RefreshIndicator(
+            onRefresh: () async {
+              BlocProvider.of<HotAndNewBloc>(context)
+                  .add(const Loaddataineveryoneiswatching());
             },
+            child: ListView.builder(
+              padding: const EdgeInsets.symmetric(vertical: 30),
+              itemCount: state.everyonewatching.length,
+              itemBuilder: (
+                BuildContext context,
+                intex,
+              ) {
+                final tv = state.everyonewatching[intex];
+                return Padding(
+                  padding: const EdgeInsets.only(
+                    top: 10,
+                    left: 10,
+                    right: 10,
+                  ),
+                  child: EvereonceWatching(
+                    id: tv.id == null ? "" : tv.id.toString(),
+                    posterPath: tv.posterPath == null
+                        ? "no image"
+                        : tv.posterPath.toString(),
+                    overview: tv.overview == ""
+                        ? "no overview"
+                        : tv.overview.toString(),
+                    movieName: tv.originalTitle == null
+                        ? "no title"
+                        : tv.originalTitle.toString(),
+                  ),
+                );
+              },
+            ),
           );
         }
       },

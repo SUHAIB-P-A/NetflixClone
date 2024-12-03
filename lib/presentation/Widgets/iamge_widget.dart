@@ -19,6 +19,30 @@ class ImageWedget extends StatelessWidget {
           child: Image.network(
             "$kimageurl$posterpath",
             fit: BoxFit.fill,
+            // handle image loading state
+            loadingBuilder: (_, child, loadingProgress) {
+              if (loadingProgress == null) {
+                // here child is the current image
+                return child;
+              } else {
+                return const Center(
+                  child: CircularProgressIndicator(
+                    strokeWidth: 2,
+                  ),
+                );
+              }
+            },
+
+            //handle any network error for loading image
+            errorBuilder: (_, error, stackTrace) {
+              return const Center(
+                child: Icon(
+                  Icons.wifi_off,
+                  size: 50,
+                  color: white,
+                ),
+              );
+            },
           ),
         ),
         Positioned(
