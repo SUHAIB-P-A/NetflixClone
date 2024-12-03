@@ -73,20 +73,20 @@ class ScreenNewandHot extends StatelessWidget {
             ),
           ),
         ),
-        body: TabBarView(children: [
-          _bottomcommonsoon(),
-          _bottomeveryonewatching(),
+        body: const TabBarView(children: [
+          CommingSoonList(
+            key: Key("movie"),
+          ),
+          EveryoneisWatchingList(
+            key: Key("tv"),
+          ),
         ]),
       ),
     );
   }
-
-//comming soon screen
-  Widget _bottomcommonsoon() {
-    return const CommingSoonList();
-  }
 }
 
+//comming soon screen
 class CommingSoonList extends StatelessWidget {
   const CommingSoonList({
     super.key,
@@ -123,6 +123,7 @@ class CommingSoonList extends StatelessWidget {
           );
         } else {
           return ListView.builder(
+              padding: const EdgeInsets.symmetric(vertical: 20),
               itemCount: state.commingsoon.length,
               itemBuilder: (
                 BuildContext context,
@@ -178,10 +179,6 @@ class CommingSoonList extends StatelessWidget {
 }
 
 //every ones watching screen
-Widget _bottomeveryonewatching() {
-  return const EveryoneisWatchingList();
-}
-
 class EveryoneisWatchingList extends StatelessWidget {
   const EveryoneisWatchingList({
     super.key,
@@ -217,12 +214,13 @@ class EveryoneisWatchingList extends StatelessWidget {
           );
         } else {
           return ListView.builder(
-            itemCount: 10,
+            padding: const EdgeInsets.symmetric(vertical: 30),
+            itemCount: state.everyonewatching.length,
             itemBuilder: (
               BuildContext context,
               intex,
             ) {
-              final movie = state.everyonewatching[intex];
+              final tv = state.everyonewatching[intex];
               return Padding(
                 padding: const EdgeInsets.only(
                   top: 10,
@@ -230,16 +228,16 @@ class EveryoneisWatchingList extends StatelessWidget {
                   right: 10,
                 ),
                 child: EvereonceWatching(
-                  id: movie.id == null ? "" : movie.id.toString(),
-                  posterPath: movie.posterPath == null
+                  id: tv.id == null ? "" : tv.id.toString(),
+                  posterPath: tv.posterPath == null
                       ? "no image"
-                      : movie.posterPath.toString(),
-                  overview: movie.overview == ""
+                      : tv.posterPath.toString(),
+                  overview: tv.overview == ""
                       ? "no overview"
-                      : movie.overview.toString(),
-                  movieName: movie.originalTitle == null
+                      : tv.overview.toString(),
+                  movieName: tv.originalTitle == null
                       ? "no title"
-                      : movie.originalTitle.toString(),
+                      : tv.originalTitle.toString(),
                 ),
               );
             },
