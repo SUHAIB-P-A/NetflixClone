@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:netflix/core/colors/colors.dart';
 
 import 'package:netflix/core/constants/const.dart';
 import 'package:netflix/presentation/Widgets/main_title_card.dart';
