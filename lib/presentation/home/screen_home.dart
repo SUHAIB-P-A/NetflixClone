@@ -55,9 +55,15 @@ class ScreenHome extends StatelessWidget {
                           strokeWidth: 2,
                         ),
                       );
-                    }
-                    if (state.isError) {
-                      const Center(
+                    } else if (state.isError) {
+                      return const Center(
+                        child: Text("No data found"),
+                      );
+                    } else if (state.pastYearMovieList.isEmpty ||
+                        state.trendingNow.isEmpty ||
+                        state.tenseDramas.isEmpty ||
+                        state.southIndianCinima.isEmpty) {
+                      return const Center(
                         child: Text("No data found"),
                       );
                     }
@@ -86,7 +92,6 @@ class ScreenHome extends StatelessWidget {
                         return '$kimageurl${m.posterPath}';
                       },
                     ).toList();
-                    tensedrama.shuffle();
 
                     // South indian
                     final southIndian = state.southIndianCinima.map(
@@ -97,12 +102,20 @@ class ScreenHome extends StatelessWidget {
                     ).toList();
                     southIndian.shuffle();
 
+                    // top10 movie list
+                    final top10 = state.top10Movies.map(
+                      (tv) {
+                        return '$kimageurl${tv.posterPath}';
+                      },
+                    ).toList();
+
+                    // listview
                     return ListView(
                       children: [
                         const BackgroundCard(),
                         MainTitleCard(
                           title: "Released in the past year",
-                          posterList: relesedPastYear.sublist(0, 10),
+                          posterList: relesedPastYear.sublist(11),
                         ),
                         khight,
                         MainTitleCard(
@@ -110,7 +123,9 @@ class ScreenHome extends StatelessWidget {
                           posterList: trendingnow.sublist(0, 10),
                         ),
                         khight,
-                        const NumberCardUi(),
+                        NumberCardUi(
+                          posterPath: top10.sublist(0, 10),
+                        ),
                         khight,
                         MainTitleCard(
                           title: "Tense Dramas",

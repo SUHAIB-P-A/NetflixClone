@@ -19,7 +19,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     */
     on<Gethomescreendata>((event, emit) async {
       // send loading to ui
-      emit( HomeState(
+      emit(HomeState(
         pastYearMovieList: [],
         trendingNow: [],
         tenseDramas: [],
@@ -37,7 +37,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       // transform data
       final resultMovie = movieResult.fold(
         (MainFailures failur) {
-          return  HomeState(
+          return HomeState(
             pastYearMovieList: [],
             trendingNow: [],
             tenseDramas: [],
@@ -55,8 +55,12 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
           final southindia = resp.results;
           pastYear.shuffle();
           treanding.shuffle();
+          treanding.shuffle();
+          tenseDrama.shuffle();
           tenseDrama.shuffle();
           southindia.shuffle();
+          southindia.shuffle();
+
           return HomeState(
             pastYearMovieList: pastYear,
             trendingNow: treanding,
@@ -74,7 +78,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
 // only for top10
       final resultTv = tvResult.fold(
         (MainFailures failur) {
-          return  HomeState(
+          return HomeState(
             pastYearMovieList: [],
             trendingNow: [],
             tenseDramas: [],

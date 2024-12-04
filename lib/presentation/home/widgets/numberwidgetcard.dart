@@ -3,8 +3,10 @@ import 'package:netflix/presentation/Widgets/title.dart';
 import 'package:netflix/presentation/home/widgets/numbercard.dart';
 
 class NumberCardUi extends StatelessWidget {
+  final List<String> posterPath;
   const NumberCardUi({
     super.key,
+    required this.posterPath,
   });
 
   @override
@@ -18,9 +20,10 @@ class NumberCardUi extends StatelessWidget {
           child: ListView(
             scrollDirection: Axis.horizontal,
             children: List.generate(
-                10,
+                posterPath.length,
                 (index) => NumberCard(
                       index: index,
+                      imageUrl: posterPath[index],
                     )),
           ),
         ),

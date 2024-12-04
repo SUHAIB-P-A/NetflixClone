@@ -5,9 +5,11 @@ import 'package:netflix/core/constants/const.dart';
 
 class NumberCard extends StatelessWidget {
   final int index;
+  final String imageUrl;
   const NumberCard({
     super.key,
     required this.index,
+    required this.imageUrl,
   });
 
   @override
@@ -25,10 +27,11 @@ class NumberCard extends StatelessWidget {
               width: 130,
               decoration: BoxDecoration(
                 borderRadius: kradius10,
-                image: const DecorationImage(
+                image: DecorationImage(
                   fit: BoxFit.cover,
                   image: NetworkImage(
-                      "https://m.media-amazon.com/images/M/MV5BZGJkMDUwZWQtYTMzMS00NTg5LWE1ZTYtOTVhMDI4NGI1YjMyXkEyXkFqcGdeQXVyODk4OTc3MTY@._V1_FMjpg_UX1013_.jpg"),
+                    imageUrl,
+                  ),
                 ),
               ),
             ),

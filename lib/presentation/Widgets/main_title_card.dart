@@ -13,6 +13,9 @@ class MainTitleCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (posterList.isEmpty) {
+      return const SizedBox.shrink();
+    }
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
