@@ -12,13 +12,14 @@ part 'home_bloc.freezed.dart';
 @injectable
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
   final HotAndNewServices _homeservices;
+
   HomeBloc(this._homeservices) : super(HomeState.initial()) {
     /* 
     on event get home screen data
     */
     on<Gethomescreendata>((event, emit) async {
       // send loading to ui
-      emit(const HomeState(
+      emit( HomeState(
         pastYearMovieList: [],
         trendingNow: [],
         tenseDramas: [],
@@ -26,6 +27,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         top10Movies: [],
         isLoading: true,
         isError: false,
+        stateId: DateTime.now().millisecondsSinceEpoch.toString(),
       ));
 
       // get data
@@ -35,7 +37,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       // transform data
       final resultMovie = movieResult.fold(
         (MainFailures failur) {
-          return const HomeState(
+          return  HomeState(
             pastYearMovieList: [],
             trendingNow: [],
             tenseDramas: [],
@@ -43,6 +45,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
             top10Movies: [],
             isLoading: false,
             isError: true,
+            stateId: DateTime.now().millisecondsSinceEpoch.toString(),
           );
         },
         (HotAndNewRespo resp) {
@@ -62,6 +65,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
             top10Movies: state.top10Movies,
             isLoading: false,
             isError: false,
+            stateId: DateTime.now().millisecondsSinceEpoch.toString(),
           );
         },
       );
@@ -70,7 +74,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
 // only for top10
       final resultTv = tvResult.fold(
         (MainFailures failur) {
-          return const HomeState(
+          return  HomeState(
             pastYearMovieList: [],
             trendingNow: [],
             tenseDramas: [],
@@ -78,6 +82,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
             top10Movies: [],
             isLoading: false,
             isError: true,
+            stateId: DateTime.now().millisecondsSinceEpoch.toString(),
           );
         },
         (HotAndNewRespo resp) {
@@ -91,6 +96,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
             top10Movies: top10,
             isLoading: false,
             isError: false,
+            stateId: DateTime.now().millisecondsSinceEpoch.toString(),
           );
         },
       );

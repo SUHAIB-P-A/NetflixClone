@@ -3,6 +3,7 @@ part of 'home_bloc.dart';
 @freezed
 class HomeState with _$HomeState {
   const factory HomeState({
+    required String stateId,
     required List<HotAndNewData> pastYearMovieList,
     required List<HotAndNewData> trendingNow,
     required List<HotAndNewData> tenseDramas,
@@ -19,6 +20,6 @@ class HomeState with _$HomeState {
         southIndianCinima: [],
         top10Movies: [],
         isLoading: false,
-        isError: false,
+        isError: false, stateId: '0',
       );
 }
